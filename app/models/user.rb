@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
   NEIGHBOURHOOD = ["Building", "Residential Street"]
   validates :neighbourhood_type, inclusion: { in: NEIGHBOURHOOD }
+
+  has_many :items
+
 end
