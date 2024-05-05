@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   resources :items, only: %i[index show new create]
+  get "/dashboard", to: "pages#dashboard"
 
   get "up" => "rails/health#show", as: :rails_health_check
 end
