@@ -3,16 +3,16 @@ Category.delete_all
 User.delete_all
 Building.delete_all
 
-building1 = Building.create!(name: "Bâtiment rue Servan", description: "Un bâtiment à la décoration sobre où vivent des individus sympathiques et engagés.", address:"61 Rue Servan, 75011 Paris")
+building1 = Building.create!(name: "Bâtiment rue Servan", description: "Un bâtiment à la décoration sobre où vivent des individus sympathiques et engagés.", building_address:"61 Rue Servan, 75011 Paris")
 p "Building #{building1.name} has been created"
 
-building2 = Building.create!(name:"Bâtiment Vila Gaudelet", description: "Un bâtiment chaleureux et convivial où il fait bon vivre.", address: "16 Vila Gaudelet, 75011 Paris")
+building2 = Building.create!(name:"Bâtiment Vila Gaudelet", description: "Un bâtiment chaleureux et convivial où il fait bon vivre.", building_address: "16 Vila Gaudelet, 75011 Paris")
 p "Building #{building2.name} has been created"
 
-user1 = User.create!(first_name: "Clothile", last_name: "Scache", phone: "00-00-00-00-00", email: "clothilde@test.com", password: "azerty", user_address: "61 Rue Servan, 75011 Paris", is_ambassador:  true, want_to_be_ambassador: true, building: building1)
+user1 = User.create!(first_name: "Clothile", last_name: "Scache", phone: "00-00-00-00-00", email: "clothilde@test.com", password: "azerty", user_address: "61 Rue Servan, 75011 Paris", is_ambassador:  true, want_to_be_ambassador: true, building_id: building1.id)
 p "User #{user1.first_name} has been created"
 
-user2 = User.create!(first_name: "Coralie", last_name: "Haller", phone: "00-00-00-00-00", email: "coralie@test.com", password: "azerty", user_address: "16 Vila Gaudelet, 75011 Paris", is_ambassador: false, want_to_be_ambassador: false, building: building2)
+user2 = User.create!(first_name: "Coralie", last_name: "Haller", phone: "00-00-00-00-00", email: "coralie@test.com", password: "azerty", user_address: "16 Vila Gaudelet, 75011 Paris", is_ambassador: false, want_to_be_ambassador: false, building_id: building2.id)
 p "User #{user2.first_name} has been created"
 
 ### Catégorie FOOD et ses sous catégories ###
@@ -48,7 +48,7 @@ p "Category #{category9.name} that belongs to the category #{category_food.name}
 
 ### Catégorie HOME et ses sous catégories ###
 
-category_home = Category.creat!(name: "Home", parent_id: nil)
+category_home = Category.create!(name: "Home", parent_id: nil)
 p "Category #{category_home.name} has been created"
 
 category10 = Category.create!(name: "Furniture", parent_id: category_home.id)
