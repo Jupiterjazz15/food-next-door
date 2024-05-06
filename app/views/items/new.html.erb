@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="mb-3" >Add an item</h2>
+      <div class="bg-white rounded-custom p-3 shadow">
+        <%= simple_form_for [@item] do |f| %>
+          <%= f.input :title,  label: 'Title' %>
+          <%= f.input :description, label: 'Description'%>
+          <%= f.input :quantity_value, label: 'Quantity value' %>
+          <%= f.input :quantity_unit, label: 'Quantity unit' %>
+          <%= f.input :available_start_date, label: 'Start Date' %>
+          <%= f.input :available_end_date, label: 'End Date' %>
+          <%= f.input :best_before_date, label: 'Best before Date' %>
+          <%= f.input :item_address, label: 'Address' %>
+          <%= f.input :category_id %>
+          <%= f.input :item_address, label: 'Address' %>
+          <%= f.button :submit, 'Add a book', class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.string "title"
+    t.text "description"
+    t.string "quantity_unit"
+    t.decimal "quantity_value"
+    t.datetime "available_start_date"
+    t.datetime "available_end_date"
+    t.datetime "best_before_date"
+    t.string "item_address"
+    t.string "food_condition"
+    t.string "home_condition"
+    t.boolean "is_available", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["user_id"], name: "index_items_on_user_id"

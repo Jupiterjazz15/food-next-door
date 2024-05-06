@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @main_categories = Category.where(parent_category_id: nil)  # Catégories sans parent
   end
 
   def create
