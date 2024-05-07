@@ -22,6 +22,9 @@ p "Category #{category_food.name} has been created"
 category1 = Category.create!(name: "Baby", parent_id: category_food.id)
 p "Category #{category1.name} that belongs to the category #{category_food.name} has been created"
 
+item1 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Baby").id, title: "Stewed", description: "Taste : apple ", quantity_unit: "Unit", quantity_value: 6, available_start_date: "2024-05-21 14:30", available_end_date: "2024-05-25 14:30", best_before_date: "2024-07-21", item_address: "61 Rue Servan, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true)
+p "Item #{item1.title} has been created and belong to User with the id #{item1.user_id}"
+
 category2 = Category.create!(name: "Bakery", parent_id: category_food.id)
 p "Category #{category2.name} that belongs to the category #{category_food.name} has been created"
 
