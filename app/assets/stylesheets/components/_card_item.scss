@@ -1,8 +1,14 @@
+.item-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
 .card-item {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 30px 30px 15px 15px;
+  border-radius: 30px 30px 5px 5px;
   position: relative;
 
   & .card-item-img {
@@ -12,13 +18,13 @@
   }
 
   & h2 {
-    font-size: 0.8em;
+    font-size: 0.9em;
     font-weight: bold;
     margin: 0;
   }
 
   & p {
-    font-size: 0.4em;
+    font-size: 0.45em;
     margin: 0;
   }
 
@@ -34,8 +40,8 @@
   display: flex;
   align-items: center;
   position: absolute;
-  left: 7px;
-  bottom: 67px;
+  left: 3%;
+  bottom: 36%;
 }
 
 #card-item-user-name {
@@ -46,19 +52,21 @@
 
 .card-item-category {
   position: absolute;
-  right: 7px;
-  bottom: 67px;
+  right: 3%;
+  bottom: 36%;
   background: white;
   color: $orange-fnd;
   border-radius: 20px;
   border: 1.5px solid $orange-fnd;
   font-size: 0.5em;
   text-transform: uppercase;
-  padding: 0.4em 0.9em;
+  padding: 0.4em 1em;
   opacity: 0.8;
+  font-weight: bold;
 }
 
 .card-item-date {
   color: $orange-fnd;
   font-size: 0.6em;
+  font-weight: bold;
 }
