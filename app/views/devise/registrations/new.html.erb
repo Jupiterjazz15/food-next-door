@@ -35,10 +35,6 @@
                       autofocus: true,
                       input_html: { autocomplete: "birthday" } %>
 
-          <%= f.input :neighbourhood_type, as: :select, collection: User::NEIGHBOURHOOD,
-                  required: true,
-                  input_html: { autocomplete: "neighbourhood_type" } %>
-
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
 
