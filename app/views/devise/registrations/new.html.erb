@@ -35,6 +35,21 @@
                       autofocus: true,
                       input_html: { autocomplete: "birthday" } %>
 
+          <%= f.input :user_address,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "user_address" } %>
+
+          <%= f.input :want_to_be_ambassador,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "want_to_be_ambassador" } %>
+
+          <%= f.input :building_id,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "building_id" } %>
+
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
 
