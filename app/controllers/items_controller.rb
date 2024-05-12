@@ -10,6 +10,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    # Flatpickr : on doit séparer les dates de début et de fin récupérées du formulaire
+    date_range = params[:item][:available_date_range].split(" to ")
+    @item.available_start_date = date_range[0]
+    @item.available_end_date = date_range[1]
+
     @main_categories = Category.where(parent_category_id: nil)  # Catégories sans parent
   end
 
