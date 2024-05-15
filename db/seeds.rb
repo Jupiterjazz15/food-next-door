@@ -25,7 +25,7 @@ p " CATEGORY #{category_food.name.upcase} HAS BEEN CREATED"
 category1 = Category.create!(name: "Baby", parent_id: category_food.id)
 p "Category #{category1.name} that belongs to the category #{category_food.name} has been created"
 
-item1 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Baby").id, title: "Stewed", description: "Taste : apple and pear ", quantity_unit: "Unit", quantity_value: 6, available_start_date: "2024-05-21 14:30", available_end_date: "2024-05-25 14:30", best_before_date: "2024-05-29", item_address: "61 Rue Servan, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2025-01-01")
+item1 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Baby").id, title: "Stewed", description: "Taste : apple and pear ", quantity_unit: "Unit", quantity_value: 6, available_start_date: "2024-05-21 14:30", available_end_date: "2024-05-25 14:30", best_before_date: nil, item_address: "61 Rue Servan, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2025-01-01")
 file = URI.open("https://www.french-corner-shop.com/838-large_default/compotes-bebe-des-4-mois-pomme-poire-bledina-les-4-pots-de-130g.jpg")
 item1.photo.attach(io: file, filename: "stewed.jpg", content_type: "image/jpeg")
 p "Item #{item1.title} has been created and belong to User with the id #{item1.user_id}"
@@ -49,7 +49,7 @@ p "Item #{item3.title} has been created and belong to User with the id #{item3.u
 category4 = Category.create!(name: "Drinks", parent_id: category_food.id)
 p "Category #{category4.name} that belongs to the category #{category_food.name} has been created"
 ### REVOIR LA quantity_value: au besoin ###
-item4 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Drinks").id, title: "Kombucha", description: "A homemade kombucha", quantity_unit: "mL", quantity_value: 500 , available_start_date: "2024-05-20 10:00", available_end_date: "2024-05-21 18:00", best_before_date: "2024-05-27", item_address: "61 Rue Servan, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date:"2024-08-12")
+item4 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Drinks").id, title: "Kombucha", description: "A homemade kombucha", quantity_unit: "mL", quantity_value: 500 , available_start_date: "2024-05-20 10:00", available_end_date: "2024-05-21 18:00", best_before_date: nil, item_address: "61 Rue Servan, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date:"2024-08-12")
 file = URI.open("https://vitalitymagazine.com/wp-content/uploads/2016/09/Sept2016_kombucha.jpg")
 item4.photo.attach(io: file, filename: "konbucha.jpg", content_type: "image/jpeg")
 p "Item #{item4.title} has been created and belong to User with the id #{item4.user_id}"
@@ -57,7 +57,7 @@ p "Item #{item4.title} has been created and belong to User with the id #{item4.u
 category5 = Category.create!(name: "Fresh", parent_id: category_food.id)
 p "Category #{category5.name} that belongs to the category #{category_food.name} has been created"
 ### REVOIR LA quantity_value: au besoin ###
-item5 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Fresh").id, title: "Soja yogurt", description: "A blueberry soja yogurt", quantity_unit: "Gram", quantity_value: 400 , available_start_date: "2024-05-17 10:00", available_end_date: "2024-05-21 18:00", best_before_date: "2024-06-01", item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2024-06-23")
+item5 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Fresh").id, title: "Soja yogurt", description: "A blueberry soja yogurt", quantity_unit: "Gram", quantity_value: 400 , available_start_date: "2024-05-17 10:00", available_end_date: "2024-05-21 18:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2024-06-23")
 file = URI.open("https://organictoyourdoor.co.uk/wp-content/uploads/0000000001610.jpg")
 item5.photo.attach(io: file, filename: "soja.jpg", content_type: "image/jpeg")
 p "Item #{item5.title} has been created and belong to User with the id #{item5.user_id}"
@@ -65,7 +65,7 @@ p "Item #{item5.title} has been created and belong to User with the id #{item5.u
 category6 = Category.create!(name: "Frozen", parent_id: category_food.id)
 p "Category #{category6.name} that belongs to the category #{category_food.name} has been created"
 ### REVOIR LA quantity_value: au besoin ###
-item6 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Frozen").id, title: "Spinach", description: "A small bag of spinach leaves in portions", quantity_unit: "Gram", quantity_value: 2500 , available_start_date: "2024-05-15 12:00", available_end_date: "2024-05-30 18:00", best_before_date: "2024-07-01", item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date:"2024-11-01")
+item6 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Frozen").id, title: "Spinach", description: "A small bag of spinach leaves in portions", quantity_unit: "Gram", quantity_value: 2500 , available_start_date: "2024-05-15 12:00", available_end_date: "2024-05-30 18:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date:"2024-11-01")
 file = URI.open("https://zoom.ocado.com/productImages/527/527957011_527957011_0_1596207288000_1280x1280.jpg")
 item6.photo.attach(io: file, filename: "soja.jpg", content_type: "image/jpeg")
 p "Item #{item6.title} has been created and belong to User with the id #{item6.user_id}"
@@ -73,7 +73,7 @@ p "Item #{item6.title} has been created and belong to User with the id #{item6.u
 category7 = Category.create!(name: "Pantry", parent_id: category_food.id)
 p "Category #{category7.name} that belongs to the category #{category_food.name} has been created"
 
-item7 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Pantry").id, title: "Can of chickpeas", description: "2 cans", quantity_unit: "Unit", quantity_value: 2 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-05-30 18:00", best_before_date: "2024-07-01", item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date:"2025-06-01")
+item7 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Pantry").id, title: "Can of chickpeas", description: "2 cans", quantity_unit: "Unit", quantity_value: 2 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-05-30 18:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date:"2025-06-01")
 file = URI.open("https://i5.walmartimages.com/asr/0af29b5d-5ae3-47df-b3f1-1281ab589b26_1.06364b25738a677ef640f86fd1139865.jpeg")
 item7.photo.attach(io: file, filename: "chickpeas.jpg", content_type: "image/jpeg")
 p "Item #{item7.title} has been created and belong to User with the id #{item7.user_id}"
@@ -81,7 +81,7 @@ p "Item #{item7.title} has been created and belong to User with the id #{item7.u
 category8 = Category.create!(name: "Pet", parent_id: category_food.id)
 p "Category #{category8.name} that belongs to the category #{category_food.name} has been created"
 
-item8 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Pet").id, title: "Pâté for puppy", description: "3 cans", quantity_unit: "Unit", quantity_value: 3 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-05-20 19:00", best_before_date: "2024-07-10", item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2024-09-01")
+item8 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Pet").id, title: "Pâté for puppy", description: "3 cans", quantity_unit: "Unit", quantity_value: 3 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-05-20 19:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2024-09-01")
 file = URI.open("https://img.chewy.com/is/image/catalog/215056_MAIN._SY630_V1577203074_.jpg")
 item8.photo.attach(io: file, filename: "puppy.jpg", content_type: "image/jpeg")
 p "Item #{item8.title} has been created and belong to User with the id #{item8.user_id}"
@@ -89,7 +89,7 @@ p "Item #{item8.title} has been created and belong to User with the id #{item8.u
 category9 = Category.create!(name: "Other", parent_id: category_food.id)
 p "Category #{category9.name} that belongs to the category #{category_food.name} has been created"
 
-item9 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Other").id, title: "Lollipop", description: "Half a sachet", quantity_unit: "Unit", quantity_value: 10 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-07-01 19:00", best_before_date: "2024-12-31", item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2025-08-10")
+item9 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Other").id, title: "Lollipop", description: "Half a sachet", quantity_unit: "Unit", quantity_value: 10 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-07-01 19:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2025-08-10")
 file = URI.open("https://assets.iceland.co.uk/i/iceland/chupa_chups_25_assorted_flavour_mini_lollipops_150g_55640_T5.jpg?$pdpzoom$")
 item9.photo.attach(io: file, filename: "lollipop.jpg", content_type: "image/jpeg")
 p "Item #{item9.title} has been created and belong to User with the id #{item9.user_id}"
