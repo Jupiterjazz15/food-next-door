@@ -1,0 +1,19 @@
+.welcome-title {
+  text-align: center;
+
+  h1 {
+    font-size: 40px;
+    color: $lightpink-fnd;
+  }
+
+  h3 {
+    color: $orange-fnd;
+    font-family: 'Zen Kaku Gothic New', 'sans-serif';
+    font-weight: 700;
+    font-size: 30px;
+  }
+}
+
+body {
+  background-color: $pink-fnd;
+}
