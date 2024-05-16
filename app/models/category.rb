@@ -4,5 +4,5 @@ class Category < ApplicationRecord
   belongs_to :parent_category, class_name: 'Category', optional: true
 
   validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, uniqueness: { scope: :parent_id }
 end
