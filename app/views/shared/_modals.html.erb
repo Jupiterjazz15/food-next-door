@@ -1,0 +1,29 @@
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createModalLabel">Créer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <button class="btn btn-primary btn-block" data-action="click->modal#selectCategory" data-category="food">Nourriture</button>
+        <button class="btn btn-primary btn-block" data-action="click->modal#selectCategory" data-category="home">Objets</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="actionModal" tabindex="-1" aria-labelledby="actionModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="actionModalLabel">Action</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <button class="btn btn-success btn-block" data-action="click->modal#selectAction" data-action-type="donation">Faire un don</button>
+        <button class="btn btn-success btn-block" data-action="click->modal#selectAction" data-action-type="request">Faire une demande</button>
+      </div>
+    </div>
+  </div>
+</div>

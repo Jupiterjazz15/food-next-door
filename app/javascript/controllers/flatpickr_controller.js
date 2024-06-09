@@ -4,10 +4,13 @@ import rangePlugin from "flatpickrRangePlugin";
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
-  static targets = ['startDateInput', 'endDateInput']
+  static targets = ['startDateInput']
   connect() {
     flatpickr(this.startDateInputTarget, {
-      "plugins": [new rangePlugin({ input: this.endDateInputTarget})]
-     })
+      plugins: [new rangePlugin({ input: this.endDateInputTarget })],
+      dateFormat: "Y-m-d",
+      altInput: true,
+      altFormat: "F j, Y",
+    });
   }
 }
