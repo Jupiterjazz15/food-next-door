@@ -1,6 +1,28 @@
-.welcome-title {
-  text-align: center;
+html, body {
+  height: 100%;
+}
 
+.welcome-background-color {
+  background-color: $pink-fnd;
+  height: 100%;
+  text-align: center;
+}
+
+.welcome-top {
+
+  margin: auto;
+
+  img {
+    height: 4.5em;
+    border-radius: 50%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+.welcome-title {
+  padding-top: 4em;
+  padding-bottom: 3em;
   h1 {
     font-size: 40px;
     color: $lightpink-fnd;
@@ -13,7 +35,10 @@
     font-size: 30px;
   }
 }
+.welcome-pineapple {
 
-body {
-  background-color: $pink-fnd;
+  img {
+    height: 30em;
+    padding-left: 1em;
+  }
 }

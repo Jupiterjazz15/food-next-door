@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%# exclusion de la navbar pour le splash screen et les vues devises %>
+    <!-- exclusion de la navbar pour le splash screen et les vues devises -->
     <% unless action_name == "welcome" || controller_name.in?(%w[sessions registrations confirmations passwords]) %>
       <%= render "shared/navbar" %>
     <% end %>
