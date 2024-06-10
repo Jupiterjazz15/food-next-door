@@ -13,10 +13,13 @@ export default class extends Controller {
   selectCategory(event) {
     const category = event.currentTarget.dataset.category;
     this.selectedCategory = category;
+
+    // Cacher la première modale
     const createModalElement = document.getElementById('createModal');
     const createModal = Modal.getInstance(createModalElement);
     createModal.hide();
 
+    // Afficher la deuxième modale
     const actionModalElement = document.getElementById('actionModal');
     const actionModal = new Modal(actionModalElement);
     actionModal.show();
