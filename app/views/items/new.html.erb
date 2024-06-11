@@ -1,30 +1,34 @@
-<div class="container">
+<div class="container mb-5">
   <div class="row">
     <div class="col">
-      <h2 class="mb-3" >Make a <%= @type == 'donation' ? 'donation' : 'request' %></h2>
+      <h2 class="my-3" >Make a <%= @type == 'donation' ? 'donation' : 'request' %></h2>
       <div class="bg-white rounded-custom p-3 shadow">
         <%= simple_form_for @item, html: { data: { controller: "form" } } do |f| %>
           <%= f.hidden_field :type, value: @type %>
           <%= f.hidden_field :category, value: @category %>
           <%= f.input :title, label: 'Title' %>
           <%= f.input :description, label: 'Description' %>
-          <%= f.input :category_id, collection: @categories, label_method: :name, value_method: :id, include_blank: 'Sélectionnez une sous-catégorie', input_html: { data: { target: "form.category", action: "change->form#toggleConditions change->form#toggleBestBeforeDate" } } %>
-          <%= f.input :quantity_unit, label: 'Quantity unit' %>
-          <%= f.input :quantity_value, label: 'Quantity value' %>
+          <%= f.input :category_id, collection: @categories, label_method: :name, value_method: :id, include_blank: 'Sélectionnez une sous-catégorie', input_html: { data: { form_target: "category", action: "change->form#toggleConditions change->form#toggleBestBeforeDate" } } %>
+
+          <div class="d-flex justify-content-between">
+            <%= f.input :quantity_value, label: 'Quantity value'%>
+            <%= f.input :quantity_unit, label: 'Quantity unit' %>
+          </div>
 
           <div data-controller="flatpickr">
-            <%= f.input :available_date_range, as: :string, input_html: { data: { target: "flatpickr.startDateInput" } } %>
+            <%= f.input :available_start_date, as: :string, label: 'Start Date', input_html: { data: { flatpickr_target: "startDateInput" } } %>
+            <%= f.input :available_end_date, as: :string, label: 'End Date', input_html: { data: { flatpickr_target: "endDateInput" } } %>
           </div>
 
-          <div data-target="form.bestBeforeDate" class="d-none">
-            <%= f.input :best_before_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+          <div data-form-target="bestBeforeDate" class="d-none">
+            <%= f.input :best_before_date, as: :string, label: 'Best Before' %>
           </div>
 
-          <div data-target="form.foodCondition" class="d-none">
+          <div data-form-target="foodCondition" class="d-none">
             <%= f.input :food_condition, label: 'Condition', collection: ['Not opened', 'Opened', 'Cooked'] %>
           </div>
 
-          <div data-target="form.homeCondition" class="d-none">
+          <div data-form-target="homeCondition" class="d-none">
             <%= f.input :home_condition, label: 'Condition', collection: ['Like new', 'Used - good', 'Used - fair', 'For parts'] %>
           </div>
 

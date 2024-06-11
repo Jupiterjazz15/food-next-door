@@ -7,10 +7,7 @@ export default class extends Controller {
   static targets = ['startDateInput']
   connect() {
     flatpickr(this.startDateInputTarget, {
-      plugins: [new rangePlugin({ input: this.endDateInputTarget })],
-      dateFormat: "Y-m-d",
-      altInput: true,
-      altFormat: "F j, Y",
-    });
+      "plugins": [new rangePlugin({ input: this.endDateInputTarget})]
+     })
   }
 }

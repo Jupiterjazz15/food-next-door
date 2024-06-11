@@ -3,21 +3,29 @@ import { Modal } from "bootstrap"
 
 // Connects to data-controller="modal"
 export default class extends Controller {
-  openCreateModal(event) {
+  static values = { selectedCategory: String };
+
+  openCategoryModal(event) {
     event.preventDefault();
-    const createModalElement = document.getElementById('createModal');
-    const createModal = new Modal(createModalElement);
-    createModal.show();
+    console.log("Open category modal");
+    const categoryModalElement = document.getElementById('categoryModal');
+    const categoryModal = new Modal(categoryModalElement);
+    categoryModal.show();
   }
 
   selectCategory(event) {
     const category = event.currentTarget.dataset.category;
-    this.selectedCategory = category;
+    this.selectedCategoryValue = category;
+    console.log("Selected category:", this.selectedCategoryValue);
+
+    // Faire persister la catégorie sélectionnée
+    this.element.dataset.selectedCategoryValue = category;
+    console.log("Persisted selected category:", this.element.dataset.selectedCategoryValue);
 
     // Cacher la première modale
-    const createModalElement = document.getElementById('createModal');
-    const createModal = Modal.getInstance(createModalElement);
-    createModal.hide();
+    const categoryModalElement = document.getElementById('categoryModal');
+    const categoryModal = Modal.getInstance(categoryModalElement);
+    categoryModal.hide();
 
     // Afficher la deuxième modale
     const actionModalElement = document.getElementById('actionModal');
@@ -27,7 +35,13 @@ export default class extends Controller {
 
   selectAction(event) {
     const actionType = event.currentTarget.dataset.actionType;
-    const url = `/items/new?type=${actionType}&category=${this.selectedCategory}`;
-    window.location.href = url;
+
+     // Retrouver la catégorie sélectionnée
+     const category = this.element.dataset.selectedCategoryValue;
+     console.log("Category before redirect:", category);
+
+    const url = `/items/new?type=${actionType}&category=${category}`;
+    // window.location.href = url;
+    console.log("Redirecting to URL:", url);
   }
 }

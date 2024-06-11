@@ -5,16 +5,17 @@ export default class extends Controller {
   static targets = ["category", "foodCondition", "homeCondition", "bestBeforeDate"]
 
   connect() {
+    console.log("Form controller connected")
     this.toggleConditions()
     this.toggleBestBeforeDate()
   }
 
   toggleConditions() {
     const category = this.categoryTarget.value
-    if (category === 'food') {
+    if (category === 'Food') {
       this.foodConditionTarget.classList.remove('d-none')
       this.homeConditionTarget.classList.add('d-none')
-    } else if (category === 'home') {
+    } else if (category === 'Home') {
       this.foodConditionTarget.classList.add('d-none')
       this.homeConditionTarget.classList.remove('d-none')
     } else {

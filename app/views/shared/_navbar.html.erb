@@ -1,4 +1,4 @@
-<div class="navbar-bottom">
+<div class="navbar-bottom" data-controller="highlight">
 
   <%= link_to items_path do %>
     <div class="tab-current">
@@ -12,10 +12,9 @@
   <% end %>
 
 <% if user_signed_in? %>
-   <%= link_to '#', data: { controller: "modal", action: "modal#openCreateModal" } do %>
+   <%= link_to '#', data: { controller: "modal", action: "modal#openCategoryModal" } do %>
     <div class="tab-current new-item">
-      <i class="fa-solid fa-circle-plus" style="color: #f26749;"></i>
-      <%# <i class="fa-solid fa-plus" style="color: #ffffff;"></i> %>
+      <i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i>
     </div>
   <% end %>
   <%= link_to items_path do %>
