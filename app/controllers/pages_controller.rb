@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def home
+    @subcategories = Category.where.not(parent_id: nil)
   end
 
   def dashboard
