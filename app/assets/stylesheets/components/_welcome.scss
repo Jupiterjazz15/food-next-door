@@ -22,7 +22,7 @@ html, body {
 
 .welcome-title {
   padding-top: 4em;
-  padding-bottom: 3em;
+  padding-bottom: 1em;
   h1 {
     font-size: 40px;
     color: $lightpink-fnd;
@@ -35,6 +35,19 @@ html, body {
     font-size: 30px;
   }
 }
+
+.welcome-link-section{
+  padding-bottom: 1em;
+}
+
+.welcome-link {
+  font-size: 40px;
+  color: $lightpink-fnd;
+  text-decoration: none;
+  border-top: 0.03em solid $lightpink-fnd;
+  border-bottom: 0.03em solid $lightpink-fnd;
+}
+
 .welcome-pineapple {
 
   img {
