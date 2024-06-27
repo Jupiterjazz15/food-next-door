@@ -13,7 +13,11 @@
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body>
+    <!-- exclusion de la navbar pour le splash screen et les vues devises -->
+    <% unless action_name == "welcome" || controller_name.in?(%w[sessions registrations confirmations passwords]) %>
+      <%= render "shared/navbar" %>
+    <% end %>
     <%= render "shared/flashes" %>
     <%= render "shared/modals" %>
     <%= yield %>
