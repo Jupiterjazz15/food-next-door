@@ -1,47 +1,34 @@
-import { Controller } from "@hotwired/stimulus"
-import { Modal } from "bootstrap"
+import { Controller } from "@hotwired/stimulus";
+import { Modal } from "bootstrap";
 
 // Connects to data-controller="modal"
 export default class extends Controller {
-  static values = { selectedCategory: String };
+  static targets = ["categoryModal", "actionModal"]
 
-  openCategoryModal(event) {
-    event.preventDefault();
-    console.log("Open category modal");
-    const categoryModalElement = document.getElementById('categoryModal');
-    const categoryModal = new Modal(categoryModalElement);
-    categoryModal.show();
+  connect() {
+    console.log("Modal controller connected")
+    // Initialisation des variables de catégorie et d'action
+    this.categoryModal = null;
+    this.actionModal = null;
+  }
+
+  showCategoryModal() {
+    console.log("J'ai cliqué sur le bouton de la navbar")
+    // Affichage de la modal de catégorie
+    this.categoryModalTarget.classList.remove("d-none")
   }
 
   selectCategory(event) {
-    const category = event.currentTarget.dataset.category;
-    this.selectedCategoryValue = category;
-    console.log("Selected category:", this.selectedCategoryValue);
-
-    // Faire persister la catégorie sélectionnée
-    this.element.dataset.selectedCategoryValue = category;
-    console.log("Persisted selected category:", this.element.dataset.selectedCategoryValue);
-
-    // Cacher la première modale
-    const categoryModalElement = document.getElementById('categoryModal');
-    const categoryModal = Modal.getInstance(categoryModalElement);
-    categoryModal.hide();
-
-    // Afficher la deuxième modale
-    const actionModalElement = document.getElementById('actionModal');
-    const actionModal = new Modal(actionModalElement);
-    actionModal.show();
+    // Sélection de la catégorie et affichage de la modal d'action
+    this.categoryModal = event.currentTarget.dataset.category
+    this.categoryModalTarget.classList.add("d-none")
+    this.actionModalTarget.classList.remove("d-none")
   }
 
   selectAction(event) {
-    const actionType = event.currentTarget.dataset.actionType;
-
-     // Retrouver la catégorie sélectionnée
-     const category = this.element.dataset.selectedCategoryValue;
-     console.log("Category before redirect:", category);
-
-    const url = `/items/new?type=${actionType}&category=${category}`;
-    // window.location.href = url;
-    console.log("Redirecting to URL:", url);
+    // Sélection de l'action et redirection vers le formulaire de création d'un item
+    this.actionModal = event.currentTarget.dataset.type
+    const url = `/items/new?category=${this.categoryModal}&type=${this.actionModal}`
+    window.location.href = url
   }
 }

@@ -10,8 +10,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @type = params[:type]
     @category = params[:category]
+    @type = params[:type]
     if @category.present?
       parent_category = Category.find_by(name: @category.capitalize)
       if parent_category

@@ -1,4 +1,4 @@
-<div class="navbar-bottom" data-controller="highlight">
+<div class="navbar-bottom">
 
   <%= link_to items_path do %>
     <div class="tab-current">
@@ -11,11 +11,10 @@
   </div>
   <% end %>
 
-<% if user_signed_in? %>
-   <%= link_to '#', data: { controller: "modal", action: "modal#openCategoryModal" } do %>
-    <div class="tab-current new-item">
-      <i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i>
-    </div>
+  <%= link_to '#', data: { action: "click->modal#showCategoryModal" } do %>
+  <div class="tab-current new-item">
+    <i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i>
+  </div>
   <% end %>
   <%= link_to items_path do %>
     <div class="tab-current">
@@ -27,5 +26,5 @@
       <i class="fa-solid fa-user" style="color: #ffffff;"></i>
     </div>
   <% end %>
-<% end %>
+
 </div>

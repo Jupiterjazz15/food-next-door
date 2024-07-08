@@ -1,29 +1,33 @@
-<!-- Category Modal -->
-<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true" data-controller="modal">
-  <div class="modal-dialog modal-bottom" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="d-flex flex-column align-items-center">
-          <button class="btn btn-primary btn-block mb-1" data-action="click->modal#selectCategory" data-category="food"><h5>Food</h5></button>
-          <button class="btn btn-primary btn-block mb-3" data-action="click->modal#selectCategory" data-category="home"><h5>Home</h5></button>
-          <button type="button" class="btn btn-outline-primary btn-block" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div>
 
-<!-- Action Modal -->
-<div class="modal fade" id="actionModal" tabindex="-1" aria-labelledby="actionModalLabel" aria-hidden="true" data-controller="modal">
-  <div class="modal-dialog modal-bottom" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="d-flex flex-column align-items-center">
-          <button class="btn btn-primary btn-block mb-1" data-action="click->modal#selectAction" data-action-type="donation"><h5>Share an item</h5></button>
-          <button class="btn btn-primary btn-block mb-3" data-action="click->modal#selectAction" data-action-type="request"><h5>Request an item</h5></button>
-          <button type="button" class="btn btn-outline-primary btn-block" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+  <!-- Category Modal -->
+  <div class="d-none" data-modal-target="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-bottom" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="d-flex flex-column align-items-center">
+            <button class="btn btn-primary btn-block mb-1" data-action="click->modal#selectCategory" data-category="food"><h5>Food</h5></button>
+            <button class="btn btn-primary btn-block mb-3" data-action="click->modal#selectCategory" data-category="home"><h5>Home</h5></button>
+            <button type="button" class="btn btn-outline-primary btn-block" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Action Modal -->
+  <div class="d-none" data-modal-target="actionModal" tabindex="-1" aria-labelledby="actionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-bottom" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="d-flex flex-column align-items-center">
+            <button class="btn btn-primary btn-block mb-1" data-action="click->modal#selectAction" data-type="donation"><h5>Share an item</h5></button>
+            <button class="btn btn-primary btn-block mb-3" data-action="click->modal#selectAction" data-type="request"><h5>Request an item</h5></button>
+            <button type="button" class="btn btn-outline-primary btn-block" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
