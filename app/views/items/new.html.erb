@@ -1,0 +1,49 @@
+<div class="container mb-5">
+  <div class="row">
+    <div class="col">
+      <h2 class="mt-5 mb-3 text-center" >Make a <%= @type == 'donation' ? 'donation' : 'request' %></h2>
+      <div class="p-3">
+        <%= simple_form_for @item, html: { data: { controller: "form", controller:"flatpickr" } } do |f| %>
+          <%= f.input :title, label: 'Title' %>
+          <%= f.input :description, label: 'Description' %>
+          <%= f.input :category_id, collection: @categories, label_method: :name, value_method: :id, include_blank: 'Select a subcategory' %>
+
+          <!-- Input depending on the category -->
+          <% if @category == 'food' %>
+            <%= f.input :food_condition, label: 'Condition', collection: ['Not opened', 'Opened', 'Cooked'] %>
+
+            <div class="row">
+              <div class="col-6">
+                <%= f.input :quantity_value, label: 'Quantity'%>
+              </div>
+              <div class="col-6">
+                <%= f.input :quantity_unit, label: 'Unit of measurement', collection: ['Unit', 'Gram', 'Kg', 'mL', 'L'] %>
+              </div>
+            </div>
+
+          <% elsif @category == 'home' %>
+            <%= f.input :home_condition, label: 'Condition', collection: ['Like new', 'Used - good', 'Used - fair', 'For parts'] %>
+            <%= f.input :quantity_value, label: 'Quantity'%>
+          <% end %>
+
+          <div class="row">
+            <div class="col-6">
+              <%= f.input :available_start_date, as: :string, label: 'Start Date', input_html: { data: { flatpickr_target: "startDateInput" } } %>
+            </div>
+            <div class="col-6">
+              <%= f.input :available_end_date, as: :string, label: 'End Date', input_html: { data: { flatpickr_target: "endDateInput" } } %>
+            </div>
+          </div>
+
+          <% if @category == 'food' %>
+            <%= f.input :best_before_date, as: :string, label: 'Use-by Date', input_html: { data: { flatpickr_target: "useByDateInput" } } %>
+          <% end %>
+
+          <%= f.input :item_address, label: 'Address' %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit 'Send', class: 'btn btn-success mb-5' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

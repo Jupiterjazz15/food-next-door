@@ -8,14 +8,20 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
   </head>
 
   <body>
     <!-- exclusion de la navbar pour le splash screen et les vues devises -->
     <% unless action_name == "welcome" || controller_name.in?(%w[sessions registrations confirmations passwords]) %>
-      <%= render "shared/navbar" %>
+      <div data-controller="modal">
+        <%= render "shared/modals" %>
+        <%= render "shared/navbar" %>
+      </div>
+      <%= render "shared/flashes" %>
     <% end %>
-    <%= render "shared/flashes" %>
     <%= yield %>
   </body>
 </html>
