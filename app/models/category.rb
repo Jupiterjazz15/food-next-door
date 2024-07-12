@@ -4,7 +4,6 @@ class Category < ApplicationRecord
   belongs_to :parent_category, class_name: 'Category', optional: true
   has_one_attached :photo
 
-  validates :photo, presence: true
   validates :name, presence: true
   validates :name, uniqueness: { scope: :parent_id }
 end
