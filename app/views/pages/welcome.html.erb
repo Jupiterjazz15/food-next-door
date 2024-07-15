@@ -1,4 +1,4 @@
-<div class= "welcome-background-color">
+<div class= "welcome-background" data-controller="splash-screen">
 
   <div class="welcome-top">
     <%= image_tag "logo_scarlet.png"%>
@@ -9,9 +9,7 @@
     <h3>THE MORE WE HAVE</h3>
   </div>
 
-  <div class="welcome-link-section">
-    <%= link_to "DISCOVER", home_path, class:"welcome-link" %>
-  </div>
+   <span data-splash-screen-target="url" data-url-value="<%= home_path %>"></span>
 
   <div class="welcome-pineapple">
     <%= image_tag "radiant_pineapple.png" %>
