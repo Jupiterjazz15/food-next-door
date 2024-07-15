@@ -2,11 +2,18 @@ html, body {
   height: 100%;
 }
 
-.welcome-background-color {
+.welcome-background {
   background-color: $pink-fnd;
   height: 100%;
   text-align: center;
+  opacity: 1;
 }
+
+.welcome-background-hidden {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
 
 .welcome-top {
 
@@ -36,10 +43,6 @@ html, body {
   }
 }
 
-.welcome-link-section{
-  padding-bottom: 1em;
-}
-
 .welcome-link {
   font-size: 40px;
   color: $lightpink-fnd;
@@ -52,6 +55,7 @@ html, body {
 
   img {
     height: 30em;
+    width: 100%;
     padding-left: 1em;
     object-fit: cover;
   }
