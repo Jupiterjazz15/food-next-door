@@ -27,7 +27,7 @@ file = URI.open("http://littlerock.com.mt/wp-content/uploads/2015/07/Home-made-b
 category1.photo.attach(io: file, filename: "baby.jpg", content_type: "image/jpeg")
 p "Category #{category1.name} that belongs to the category #{category_food.name} has been created"
 
-item1 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Baby").id, title: "Stewed", description: "Taste : apple and pear ", quantity_unit: "Unit", quantity_value: 6, available_start_date: "2024-05-21 14:30", available_end_date: "2024-05-25 14:30", best_before_date: nil, item_address: "61 Rue Servan, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2025-01-01")
+item1 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Baby").id, title: "Stewed", description: "Taste : apple and pear ", quantity_unit: "Unit", quantity_value: 6, available_start_date: "2024-05-21 14:30", available_end_date: "2024-05-25 14:30", best_before_date: nil, item_address: "61 Rue Servan, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true)
 file = URI.open("https://www.french-corner-shop.com/838-large_default/compotes-bebe-des-4-mois-pomme-poire-bledina-les-4-pots-de-130g.jpg")
 item1.photo.attach(io: file, filename: "stewed.jpg", content_type: "image/jpeg")
 p "Item #{item1.title} has been created and belong to User with the id #{item1.user_id}"
@@ -37,7 +37,7 @@ file = URI.open("https://www.mashed.com/img/gallery/the-best-bakery-in-every-sta
 category2.photo.attach(io: file, filename: "bakery.jpg", content_type: "image/jpeg")
 p "Category #{category2.name} that belongs to the category #{category_food.name} has been created"
 
-item2 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Bakery").id, title: "Croissant", description: "A pack of 3 croissants", quantity_unit: "Unit", quantity_value: 3, available_start_date: "2024-05-15 09:00", available_end_date: "2024-05-17 19:00", best_before_date: "2024-05-18", item_address: "61 Rue Servan, 75011 Paris", food_condition: "Opened", home_condition: nil, is_available: true, expiry_date: "2024-07-31")
+item2 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Bakery").id, title: "Croissant", description: "A pack of 3 croissants", quantity_unit: "Unit", quantity_value: 3, available_start_date: "2024-05-15 09:00", available_end_date: "2024-05-17 19:00", best_before_date: "2024-05-18", item_address: "61 Rue Servan, 75011 Paris", food_condition: "Opened", home_condition: nil, is_available: true)
 file = URI.open("https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw77429740/3256229622050_A1N1_1510976_S13.png?sw=388&sh=388&sm=fit")
 item2.photo.attach(io: file, filename: "croissant.png", content_type: "image/png")
 p "Item #{item2.title} has been created and belong to User with the id #{item2.user_id}"
@@ -48,7 +48,7 @@ category3.photo.attach(io: file, filename: "dessert.jpg", content_type: "image/j
 p "Category #{category3.name} that belongs to the category #{category_food.name} has been created"
 
 ### REVOIR LA quantity_value: au besoin ###
-item3 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Desserts").id, title: "Cake", description: "A homemade chocolate cake", quantity_unit: "g", quantity_value: 500 , available_start_date: "2024-05-17 10:00", available_end_date: "2024-05-18 20:00", best_before_date: "2024-05-19", item_address: "61 Rue Servan, 75011 Paris", food_condition: "Cooked", home_condition: nil, is_available: true, expiry_date: nil)
+item3 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Desserts").id, title: "Cake", description: "A homemade chocolate cake", quantity_unit: "g", quantity_value: 500 , available_start_date: "2024-05-17 10:00", available_end_date: "2024-05-18 20:00", best_before_date: "2024-05-19", item_address: "61 Rue Servan, 75011 Paris", food_condition: "Cooked", home_condition: nil, is_available: true)
 file = URI.open("https://easyweeknightrecipes.com/wp-content/uploads/2021/06/ChocolateCake-15-1140x1710.jpg")
 item3.photo.attach(io: file, filename: "cake.jpg", content_type: "image/jpeg")
 p "Item #{item3.title} has been created and belong to User with the id #{item3.user_id}"
@@ -59,7 +59,7 @@ category4.photo.attach(io: file, filename: "drinks.jpg", content_type: "image/jp
 p "Category #{category4.name} that belongs to the category #{category_food.name} has been created"
 
 ### REVOIR LA quantity_value: au besoin ###
-item4 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Drinks").id, title: "Kombucha", description: "A homemade kombucha", quantity_unit: "ml", quantity_value: 500 , available_start_date: "2024-05-20 10:00", available_end_date: "2024-05-21 18:00", best_before_date: nil, item_address: "61 Rue Servan, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date:"2024-08-12")
+item4 = Item.create!(user_id: User.first.id, category_id: Category.find_by(name: "Drinks").id, title: "Kombucha", description: "A homemade kombucha", quantity_unit: "ml", quantity_value: 500 , available_start_date: "2024-05-20 10:00", available_end_date: "2024-05-21 18:00", best_before_date: nil, item_address: "61 Rue Servan, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true)
 file = URI.open("https://vitalitymagazine.com/wp-content/uploads/2016/09/Sept2016_kombucha.jpg")
 item4.photo.attach(io: file, filename: "konbucha.jpg", content_type: "image/jpeg")
 p "Item #{item4.title} has been created and belong to User with the id #{item4.user_id}"
@@ -70,7 +70,7 @@ category5.photo.attach(io: file, filename: "fresh.jpg", content_type: "image/jpe
 p "Category #{category5.name} that belongs to the category #{category_food.name} has been created"
 
 ### REVOIR LA quantity_value: au besoin ###
-item5 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Fresh").id, title: "Soja yogurt", description: "A blueberry soja yogurt", quantity_unit: "g", quantity_value: 400 , available_start_date: "2024-05-17 10:00", available_end_date: "2024-05-21 18:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2024-06-23")
+item5 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Fresh").id, title: "Soja yogurt", description: "A blueberry soja yogurt", quantity_unit: "g", quantity_value: 400 , available_start_date: "2024-05-17 10:00", available_end_date: "2024-05-21 18:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true)
 file = URI.open("https://organictoyourdoor.co.uk/wp-content/uploads/0000000001610.jpg")
 item5.photo.attach(io: file, filename: "soja.jpg", content_type: "image/jpeg")
 p "Item #{item5.title} has been created and belong to User with the id #{item5.user_id}"
@@ -81,7 +81,7 @@ category6.photo.attach(io: file, filename: "frozen.jpg", content_type: "image/jp
 p "Category #{category6.name} that belongs to the category #{category_food.name} has been created"
 
 ### REVOIR LA quantity_value: au besoin ###
-item6 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Frozen").id, title: "Spinach", description: "A small bag of spinach leaves in portions", quantity_unit: "kg", quantity_value: 2.5 , available_start_date: "2024-05-15 12:00", available_end_date: "2024-05-30 18:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date:"2024-11-01")
+item6 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Frozen").id, title: "Spinach", description: "A small bag of spinach leaves in portions", quantity_unit: "kg", quantity_value: 2.5 , available_start_date: "2024-05-15 12:00", available_end_date: "2024-05-30 18:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true)
 file = URI.open("https://zoom.ocado.com/productImages/527/527957011_527957011_0_1596207288000_1280x1280.jpg")
 item6.photo.attach(io: file, filename: "soja.jpg", content_type: "image/jpeg")
 p "Item #{item6.title} has been created and belong to User with the id #{item6.user_id}"
@@ -91,7 +91,7 @@ file = URI.open("https://images-na.ssl-images-amazon.com/images/I/912rPljOhAL._A
 category7.photo.attach(io: file, filename: "pantry.jpg", content_type: "image/jpeg")
 p "Category #{category7.name} that belongs to the category #{category_food.name} has been created"
 
-item7 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Pantry").id, title: "Can of chickpeas", description: "2 cans", quantity_unit: "Unit", quantity_value: 2 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-05-30 18:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date:"2025-06-01")
+item7 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Pantry").id, title: "Can of chickpeas", description: "2 cans", quantity_unit: "Unit", quantity_value: 2 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-05-30 18:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true)
 file = URI.open("https://i5.walmartimages.com/asr/0af29b5d-5ae3-47df-b3f1-1281ab589b26_1.06364b25738a677ef640f86fd1139865.jpeg")
 item7.photo.attach(io: file, filename: "chickpeas.jpg", content_type: "image/jpeg")
 p "Item #{item7.title} has been created and belong to User with the id #{item7.user_id}"
@@ -101,7 +101,7 @@ file = URI.open("https://breedingbusiness.com/wp-content/uploads/2021/07/dry-dog
 category8.photo.attach(io: file, filename: "pet.jpg", content_type: "image/jpeg")
 p "Category #{category8.name} that belongs to the category #{category_food.name} has been created"
 
-item8 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Pet").id, title: "Pâté for puppy", description: "3 cans", quantity_unit: "Unit", quantity_value: 3 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-05-20 19:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2024-09-01")
+item8 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Pet").id, title: "Pâté for puppy", description: "3 cans", quantity_unit: "Unit", quantity_value: 3 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-05-20 19:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true)
 file = URI.open("https://img.chewy.com/is/image/catalog/215056_MAIN._SY630_V1577203074_.jpg")
 item8.photo.attach(io: file, filename: "puppy.jpg", content_type: "image/jpeg")
 p "Item #{item8.title} has been created and belong to User with the id #{item8.user_id}"
@@ -111,7 +111,7 @@ file = URI.open("https://www.saveur.com/uploads/2021/08/11/best-food-dehydrator-
 category9.photo.attach(io: file, filename: "other.jpg", content_type: "image/jpeg")
 p "Category #{category9.name} that belongs to the category #{category_food.name} has been created"
 
-item9 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Other").id, title: "Lollipop", description: "Half a sachet", quantity_unit: "Unit", quantity_value: 10 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-07-01 19:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true, expiry_date: "2025-08-10")
+item9 = Item.create!(user_id: User.second.id, category_id: Category.find_by(name: "Other").id, title: "Lollipop", description: "Half a sachet", quantity_unit: "Unit", quantity_value: 10 , available_start_date: "2024-05-10 12:00", available_end_date: "2024-07-01 19:00", best_before_date: nil, item_address: "16 Vila Gaudelet, 75011 Paris", food_condition: "Not opened", home_condition: nil, is_available: true)
 file = URI.open("https://assets.iceland.co.uk/i/iceland/chupa_chups_25_assorted_flavour_mini_lollipops_150g_55640_T5.jpg?$pdpzoom$")
 item9.photo.attach(io: file, filename: "lollipop.jpg", content_type: "image/jpeg")
 p "Item #{item9.title} has been created and belong to User with the id #{item9.user_id}"
