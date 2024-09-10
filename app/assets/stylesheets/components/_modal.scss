@@ -5,12 +5,11 @@
 
 .modal-bottom {
   position: fixed;
-  bottom: 10px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%) !important;
-  width: 95%;
+  width: 100%;
   max-width: 500px;
-  border-radius: 10px;
 
   .modal-dialog {
     display: flex;
@@ -20,32 +19,46 @@
   }
 
   .modal-content {
-    border-radius: 10px;
+    border-radius: 0;
     width: 100%;
-    opacity: 0.9;
+    opacity: 1;
   }
 }
 
 .modal-body {
+  padding: 1.5rem;
+
   h5 {
     margin-bottom: 0;
   }
 
   .btn {
     width: 100%;
-    padding: 0.75rem;
+    padding: 1rem;
     font-size: 1rem;
-    border-radius: 30px;
   }
 
-  .btn-primary {
+  .btn-up,
+  .btn-down {
     background-color: $blue-fnd;
     color: white;
   }
 
-  .btn-outline-primary {
+  .btn-up {
+    margin-bottom: 0px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .btn-down {
+    margin-bottom: 5rem;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .btn-outline {
+    border-radius: 10px;
     background-color: white;
     color: $blue-fnd;
-    border: 2px solid $blue-fnd;
+    border: 1px solid $blue-fnd;
+    margin-bottom: 5rem;
   }
 }
