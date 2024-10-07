@@ -1,6 +1,12 @@
-.modal.show .modal-dialog {
+.modal-dialog {
   transform: translateX(-50%) !important;
   margin: 0 !important;
+  position: absolute;
+  z-index: 1050;
+}
+
+.navbar {
+  z-index: 1000;
 }
 
 .modal-bottom {
@@ -36,30 +42,32 @@
     width: 100%;
     padding: 1rem;
     font-size: 1.2rem;
+    margin-bottom: 3rem;
   }
 
   .btn-up,
-  .btn-down {
-    background-color: rgb(245, 243, 243);
+  .btn-down,
+  .btn-cancel {
+    font-weight: 600;
     color: $blue-fnd;
     border: 1px solid  lightgray;
   }
 
   .btn-up {
+    background-color: rgb(245, 243, 243);
     margin-bottom: 0px;
     border-radius: 10px 10px 0 0;
   }
 
   .btn-down {
-    margin-bottom: 5rem;
+    background-color: rgb(245, 243, 243);
+    margin-bottom: 1rem;
     border-radius: 0 0 10px 10px;
   }
 
-  .btn-outline {
-    border-radius: 10px;
+  .btn-cancel {
     background-color: white;
-    color: $blue-fnd;
-    border: 1px solid $blue-fnd;
-    margin-bottom: 5rem;
+    margin-bottom: 0rem;
+    border-radius: 10px;
   }
 }
