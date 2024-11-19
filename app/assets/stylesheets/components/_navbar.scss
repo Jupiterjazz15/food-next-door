@@ -1,5 +1,5 @@
 .navbar-bottom {
-  border-radius: 50px 50px 0 0;
+  // border-radius: 50px 50px 0 0;
   font-size: 34px;
   position: fixed;
   bottom: 0;
@@ -31,6 +31,10 @@
 
 .navbar-bottom .fa-solid {
   text-align: center;
+}
+
+.navbar-bottom .icon-size {
+  font-size: 32px;
 }
 
 .new-item {
