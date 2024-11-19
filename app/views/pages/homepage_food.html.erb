@@ -1,0 +1,16 @@
+<div class="container my-3">
+  <!-- Category Cards -->
+  <div class="category-cards-container mb-2">
+    <%= render "shared/card_subcategory", subcategories: @food_subcategories %>
+  </div>
+  <p class="my-3"><strong>Food from people living nearby</strong></p>
+  <!-- Item Cards -->
+  <div class="item-cards-container mb-2">
+    <%= render "shared/card_item", items: @food_items %>
+  </div>
+  <p class="my-3"><strong>All food from the community</strong></p>
+  <!-- Item Cards -->
+  <div class="item-cards-container mb-2">
+    <%= render "shared/card_item", items: @food_items %>
+  </div>
+</div>

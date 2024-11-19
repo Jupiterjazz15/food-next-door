@@ -4,7 +4,18 @@
   gap: 1.2rem;
 }
 
+.item-cards-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 1.2rem;
+}
+
 .card-item {
+  flex: 1 1 calc(25% - 1.2rem); /* Ajuste la valeur pour déterminer le nombre de cartes par ligne */
+  max-width: calc(25% - 1.2rem); /* Ajuste la valeur pour contrôler la largeur maximale */
+  min-width: 230px; /* Définis une largeur minimale pour éviter qu'elles deviennent trop petites */
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -14,17 +25,18 @@
   & .card-item-img {
     height: 100px;
     width: 100%;
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
   }
 
   & h2 {
-    font-size: 0.9em;
+    font-size: 1.2em;
     font-weight: bold;
     margin: 0;
   }
 
   & p {
-    font-size: 0.45em;
+    font-size: 0.6em;
     margin: 0;
   }
 
@@ -52,21 +64,21 @@
 
 .card-item-category {
   position: absolute;
-  right: 3%;
-  bottom: 36%;
+  right: 6%;
+  top: 7%;
   background: white;
   color: $orange-fnd;
   border-radius: 20px;
   border: 1.5px solid $orange-fnd;
-  font-size: 0.5em;
+  font-size: 0.6em;
   text-transform: uppercase;
   padding: 0.4em 1em;
   opacity: 0.8;
   font-weight: bold;
 }
 
-.card-item-date {
+.card-item-date p {
   color: $orange-fnd;
-  font-size: 0.6em;
+  font-size: 0.7em;
   font-weight: bold;
 }
