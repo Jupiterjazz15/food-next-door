@@ -1,36 +1,36 @@
 <div class="navbar-bottom">
 
-  <%= link_to items_path do %>
-    <div class="tab-current">
+  <%= link_to homepage_food_path do %>
+    <div class="tab-current text-center">
       <i class="fa-solid fa-utensils icon-size" style="color: #ffffff;"></i>
-      <p class="m-0 text-center">Food</p>
+      <p class="mt-0 fs-6 lh-1">Food</p>
     </div>
   <% end %>
 
-  <%= link_to items_path do %>
-  <div class="tab-current">
+  <%= link_to homepage_home_path do %>
+  <div class="tab-current text-center">
     <i class="fa-solid fa-couch icon-size" style="color: #ffffff;"></i>
-    <p class="m-0 text-center">Objects</p>
+    <p class="mt-0 fs-6 lh-1">Objects</p>
   </div>
   <% end %>
 
   <%= link_to '#', data: { action: "click->modal#showCategoryModal" } do %>
   <div class="tab-current new-item">
-    <i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i>
+    <i class="fa-solid fa-circle-plus"></i>
   </div>
   <% end %>
 
   <%= link_to items_path do %>
-    <div class="tab-current">
+    <div class="tab-current text-center">
       <i class="fa-solid fa-house icon-size" style="color: #ffffff;"></i>
-      <p class="m-0 text-center">Neighbours</p>
+      <p class="mt-0 fs-6 lh-1">Neighbours</p>
     </div>
   <% end %>
 
   <%= link_to dashboard_path do %>
-    <div class="tab-current">
+    <div class="tab-current text-center">
       <i class="fa-solid fa-user icon-size" style="color: #ffffff;"></i>
-      <p class="m-0 text-center">Profile</p>
+      <p class="mt-0 fs-6 lh-1">Profile</p>
     </div>
   <% end %>
 
