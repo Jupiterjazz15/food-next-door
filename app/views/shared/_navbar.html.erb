@@ -14,11 +14,11 @@
   </div>
   <% end %>
 
-  <%= link_to '#', data: { action: "click->modal#showCategoryModal" } do %>
-  <div class="tab-current new-item">
-    <i class="fa-solid fa-circle-plus"></i>
-  </div>
-  <% end %>
+  <button type="button" data-action="click->modal#showCategoryModal">
+    <div class="tab-current new-item">
+      <i class="fa-solid fa-circle-plus"></i>
+    </div>
+  </button>
 
   <%= link_to items_path do %>
     <div class="tab-current text-center">

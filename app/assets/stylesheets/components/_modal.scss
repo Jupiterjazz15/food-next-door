@@ -11,18 +11,21 @@
   width: 95%;
   max-width: 500px;
   border-radius: 10px;
+  z-index: 1050;
 
   .modal-dialog {
     display: flex;
     justify-content: center;
     width: 100%;
     margin: 0 !important;
+    z-index: 1051
   }
 
   .modal-content {
     border-radius: 10px;
     width: 100%;
     opacity: 0.9;
+    z-index: 1052;
   }
 }
 
@@ -46,6 +49,5 @@
   .btn-outline-primary {
     background-color: white;
     color: $blue-fnd;
-    border: 2px solid $blue-fnd;
   }
 }
