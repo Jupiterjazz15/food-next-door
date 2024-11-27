@@ -13,9 +13,9 @@
 }
 
 .card-item {
-  flex: 1 1 calc(25% - 1.2rem); /* Ajuste la valeur pour déterminer le nombre de cartes par ligne */
-  max-width: calc(25% - 1.2rem); /* Ajuste la valeur pour contrôler la largeur maximale */
-  min-width: 230px; /* Définis une largeur minimale pour éviter qu'elles deviennent trop petites */
+  flex: 1 1 calc(25% - 1.2rem);
+  max-width: calc(25% - 1.2rem);
+  min-width: 230px; 
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);

@@ -15,20 +15,34 @@ export default class extends Controller {
   showCategoryModal() {
     console.log("J'ai cliqué sur le bouton de la navbar")
     // Affichage de la modal de catégorie
-    this.categoryModalTarget.classList.remove("d-none")
+    this.categoryModalTarget.classList.remove("d-none");
+    this.categoryModalTarget.setAttribute("aria-hidden", "false");
   }
 
   selectCategory(event) {
     // Sélection de la catégorie et affichage de la modal d'action
     this.categoryModal = event.currentTarget.dataset.category
-    this.categoryModalTarget.classList.add("d-none")
-    this.actionModalTarget.classList.remove("d-none")
+    this.categoryModalTarget.classList.add("d-none");
+    this.categoryModalTarget.setAttribute("aria-hidden", "true");
+    this.actionModalTarget.classList.remove("d-none");
+    this.actionModalTarget.setAttribute("aria-hidden", "false");
+  }
+
+  hideCategoryModal() {
+    this.categoryModalTarget.classList.add("d-none");
+    this.categoryModalTarget.setAttribute("aria-hidden", "true");
   }
 
   selectAction(event) {
     // Sélection de l'action et redirection vers le formulaire de création d'un item
-    this.actionModal = event.currentTarget.dataset.type
-    const url = `/items/new?category=${this.categoryModal}&type=${this.actionModal}`
-    window.location.href = url
+    this.actionModal = event.currentTarget.dataset.type;
+    const url = `/items/new?category=${this.categoryModal}&type=${this.actionModal}`;
+    window.location.href = url;
   }
+
+  hideActionModal() {
+    this.actionModalTarget.classList.add("d-none");
+    this.actionModalTarget.setAttribute("aria-hidden", "true");
+  }
+
 }
