@@ -40,3 +40,7 @@
 *.swp
 .DS_Store
 .env*
+.env*
+
+# Ignore node_modules
+echo "node_modules/" >> .gitignore

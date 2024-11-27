@@ -16,18 +16,22 @@
   transform: translateX(-50%) !important;
   width: 100%;
   max-width: 500px;
+  border-radius: 10px;
+  z-index: 1050;
 
   .modal-dialog {
     display: flex;
     justify-content: center;
     width: 100%;
     margin: 0 !important;
+    z-index: 1051
   }
 
   .modal-content {
     border-radius: 0;
     width: 100%;
-    opacity: 1;
+    opacity: 0.9;
+    z-index: 1052;
   }
 }
 
@@ -50,24 +54,5 @@
   .btn-cancel {
     font-weight: 600;
     color: $blue-fnd;
-    border: 1px solid  lightgray;
-  }
-
-  .btn-up {
-    background-color: rgb(245, 243, 243);
-    margin-bottom: 0px;
-    border-radius: 10px 10px 0 0;
-  }
-
-  .btn-down {
-    background-color: rgb(245, 243, 243);
-    margin-bottom: 1rem;
-    border-radius: 0 0 10px 10px;
-  }
-
-  .btn-cancel {
-    background-color: white;
-    margin-bottom: 0rem;
-    border-radius: 10px;
   }
 }

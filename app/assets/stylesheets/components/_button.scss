@@ -1,0 +1,54 @@
+.btn-lightblue {
+  background-color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  border: 0;
+
+  h2 {
+    margin: 0;
+    color: $lightblue-fnd;;
+    font-size: 1em;
+  }
+}
+
+.btn-lightblue.selected {
+  opacity: 1;
+  text-decoration: none;
+  background-color: $lightblue-fnd;
+
+  h2 {
+    color: white;
+  }
+}
+
+.btn-blue {
+  background-color: $blue-fnd;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  border: 0;
+  width: 80%;
+
+  h2 {
+    margin: 0;
+    color: white;
+    font-size: 1.2em;
+  }
+}
+
+.btn-white-border-blue {
+  background-color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  border: 2px solid $blue-fnd;
+  width: 80%;
+
+  h2 {
+    margin: 0;
+    color: $blue-fnd;
+    font-size: 1.2em;
+  }
+}

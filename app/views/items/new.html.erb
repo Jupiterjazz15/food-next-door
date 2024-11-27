@@ -31,7 +31,7 @@
               <%= f.input :available_start_date, as: :string, label: 'Start Date', input_html: { data: { flatpickr_target: "startDateInput" } } %>
             </div>
             <div class="col-6">
-              <%= f.input :available_end_date, as: :string, label: 'End Date', input_html: { data: { flatpickr_target: "endDateInput" } } %>
+              <%= f.input :available_end_date, as: :string, label: 'End Date', readonly: true,  input_html: { data: { flatpickr_target: "endDateInput", action: "click->flatpickr#openStartPicker" } } %>
             </div>
           </div>
 

@@ -5,9 +5,9 @@
       <div class="modal-content">
         <div class="modal-body">
           <div class="d-flex flex-column align-items-center">
-            <button class="btn btn-up" data-action="click->modal#selectCategory" data-category="food">Food</button>
-            <button class="btn btn-down" data-action="click->modal#selectCategory" data-category="home">Objects</button>
-            <button type="button" class="btn btn-cancel" data-action="modal#closeModal" aria-label="Close">Cancel</button>
+            <button class="btn btn-primary btn-block mb-1" data-action="click->modal#selectCategory" data-category="food"><h5>Food</h5></button>
+            <button class="btn btn-primary btn-block mb-3" data-action="click->modal#selectCategory" data-category="home"><h5>Home</h5></button>
+            <button type="button" class="btn btn-outline-primary btn-block" data-action="click->modal#hideCategoryModal">Cancel</button>
           </div>
         </div>
       </div>
@@ -20,9 +20,9 @@
       <div class="modal-content">
         <div class="modal-body">
           <div class="d-flex flex-column align-items-center">
-            <button class="btn btn-up" data-action="click->modal#selectAction" data-type="donation">Donation</button>
-            <button class="btn btn-down" data-action="click->modal#selectAction" data-type="request">Request</button>
-            <button type="button" class="btn btn-cancel" data-action="modal#closeModal" aria-label="Close">Cancel</button>
+            <button class="btn btn-primary btn-block mb-1" data-action="click->modal#selectAction" data-type="donation"><h5>Share an item</h5></button>
+            <button class="btn btn-primary btn-block mb-3" data-action="click->modal#selectAction" data-type="request"><h5>Request an item</h5></button>
+            <button type="button" class="btn btn-outline-primary btn-block" data-action="click->modal#hideActionModal">Cancel</button>
           </div>
         </div>
       </div>

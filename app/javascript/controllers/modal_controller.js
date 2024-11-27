@@ -14,29 +14,35 @@ export default class extends Controller {
 
   // Afficher la modale de catégorie
   showCategoryModal() {
-    this.categoryModalTarget.classList.remove("d-none")
+    console.log("J'ai cliqué sur le bouton de la navbar")
+    // Affichage de la modal de catégorie
+    this.categoryModalTarget.classList.remove("d-none");
+    this.categoryModalTarget.setAttribute("aria-hidden", "false");
   }
 
   // Sélectionner la catégorie et afficher la modale d'action
   selectCategory(event) {
     this.categoryModal = event.currentTarget.dataset.category
-    this.categoryModalTarget.classList.add("d-none")
-    this.actionModalTarget.classList.remove("d-none")
+    this.categoryModalTarget.classList.add("d-none");
+    this.categoryModalTarget.setAttribute("aria-hidden", "true");
+    this.actionModalTarget.classList.remove("d-none");
+    this.actionModalTarget.setAttribute("aria-hidden", "false");
   }
 
-  // Sélectionner l'action et rediriger vers le formulaire de création d'un item
+  hideCategoryModal() {
+    this.categoryModalTarget.classList.add("d-none");
+    this.categoryModalTarget.setAttribute("aria-hidden", "true");
+  }
+
+  // Sélection de l'action et redirection vers le formulaire de création d'un item
   selectAction(event) {
-    this.actionModal = event.currentTarget.dataset.type
-    const url = `/items/new?category=${this.categoryModal}&type=${this.actionModal}`
-    window.location.href = url
+    this.actionModal = event.currentTarget.dataset.type;
+    const url = `/items/new?category=${this.categoryModal}&type=${this.actionModal}`;
+    window.location.href = url;
   }
 
-  // Fermer la modale en masquant la modale actuelle
-  closeModal() {
-    if (!this.categoryModalTarget.classList.contains("d-none")) {
-      this.categoryModalTarget.classList.add("d-none")
-    } else if (!this.actionModalTarget.classList.contains("d-none")) {
-      this.actionModalTarget.classList.add("d-none")
-    }
+  hideActionModal() {
+    this.actionModalTarget.classList.add("d-none");
+    this.actionModalTarget.setAttribute("aria-hidden", "true");
   }
 }
