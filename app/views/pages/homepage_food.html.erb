@@ -1,16 +1,30 @@
-<div class="container my-3">
-  <!-- Category Cards -->
-  <div class="category-cards-container mb-2">
-    <%= render "shared/card_subcategory", subcategories: @food_subcategories %>
+<div class="container my-3" data-controller="food-filter">
+
+  <div class="d-flex align-items-start justify-content-evenly mb-4">
+    <button class="btn-lighblue selected" data-action="click->food-filter#showFoodItems"><h2>Food Available</h2></button>
+    <button class="btn-lighblue" data-action="click->food-filter#showRequests"><h2>Requested Food</h2></button>
   </div>
-  <p class="my-3"><strong>Food from people living nearby</strong></p>
-  <!-- Item Cards -->
-  <div class="item-cards-container mb-2">
-    <%= render "shared/card_item", items: @food_items %>
+
+
+  <div class="mb-5" data-food-filter-target="foodItem">
+    <!-- Category Cards -->
+    <div class="category-cards-container mb-2">
+      <%= render "shared/card_subcategory", subcategories: @food_subcategories %>
+    </div>
+    <p class="my-3"><strong>Food from people living nearby</strong></p>
+    <!-- Item Cards -->
+    <div class="item-cards-container mb-2">
+      <%= render "shared/card_item", items: @food_items %>
+    </div>
+    <p class="my-3"><strong>All food from the community</strong></p>
+    <!-- Item Cards -->
+    <div class="item-cards-container mb-2">
+      <%= render "shared/card_item", items: @food_items %>
+    </div>
   </div>
-  <p class="my-3"><strong>All food from the community</strong></p>
-  <!-- Item Cards -->
-  <div class="item-cards-container mb-2">
-    <%= render "shared/card_item", items: @food_items %>
+
+  <div class="mb-5" data-food-filter-target="foodRequest">
+
   </div>
+
 </div>

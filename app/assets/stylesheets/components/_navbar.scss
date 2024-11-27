@@ -11,30 +11,31 @@
   height: 80px;
   z-index: 1000;
   justify-items: center;
+
+  a {
+   color: white;
+   text-decoration: none;
+  }
+
+  img {
+    width: 40px;
+    height: auto;
+  }
+
+  p {
+    font-size: 8px;
+    margin-top: 1em;
+  }
+
+  .fa-solid {
+    text-align: center;
+  }
+  
+  .icon-size {
+    font-size: 32px;
+  }
 }
 
-.navbar-bottom a {
-  color: white;
-  text-decoration: none;
-}
-
-.navbar-bottom img {
-  width: 40px;
-  height: auto;
-}
-
-.navbar-bottom p {
-  font-size: 8px;
-  margin-top: 1em;
-}
-
-.navbar-bottom .fa-solid {
-  text-align: center;
-}
-
-.navbar-bottom .icon-size {
-  font-size: 32px;
-}
 
 .new-item {
   font-size: 80px;
