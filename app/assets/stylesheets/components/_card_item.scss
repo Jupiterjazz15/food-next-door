@@ -10,17 +10,19 @@
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   gap: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 
 .card-item {
   flex: 1 1 calc(25% - 1.2rem);
   max-width: calc(25% - 1.2rem);
-  min-width: 230px; 
+  min-width: 230px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 30px 30px 5px 5px;
   position: relative;
+  transition: box-shadow 0.2s ease;
 
   & .card-item-img {
     height: 100px;
@@ -48,12 +50,16 @@
   }
 }
 
+.card-item:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
 .card-item-user {
   display: flex;
   align-items: center;
   position: absolute;
-  left: 3%;
-  bottom: 36%;
+  left: 4%;
+  bottom: 41%;
 }
 
 #card-item-user-name {
@@ -81,4 +87,9 @@
   color: $orange-fnd;
   font-size: 0.7em;
   font-weight: bold;
+}
+
+.card-item-link {
+  text-decoration: none;
+  color: inherit;
 }

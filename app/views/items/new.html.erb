@@ -1,47 +1,83 @@
-<div class="container mb-5">
+<div class="container navbar-space mb-5">
   <div class="row">
     <div class="col">
-      <h2 class="mt-5 mb-3 text-center" >Make a <%= @type == 'donation' ? 'donation' : 'request' %></h2>
+      <h2 class="mt-5 mb-2 text-center" ><%= @type == 'donation' ? 'Listing creation' : 'Request creation' %></h2>
       <div class="p-3">
-        <%= simple_form_for @item, html: { data: { controller: "flatpickr" } } do |f| %>
-          <%= f.input :title, label: 'Title' %>
-          <%= f.input :description, label: 'Description' %>
-          <%= f.input :category_id, collection: @categories, label_method: :name, value_method: :id, include_blank: 'Select a subcategory' %>
+        <%= simple_form_for @item, html: { data: { controller: "photo-upload flatpickr" } } do |f| %>
+          <!-- Champ masqué pour inclure le type -->
+          <%= f.hidden_field :item_type, value: @type %>
+
+          <% if @type == 'donation' %>
+            <!-- Section photo avec aperçu -->
+            <div class="text-center mb-4 photo-infos">
+              <i class="fa-solid fa-camera photo-icon mb-2"
+                  data-action="click->photo-upload#selectPhoto"
+                  data-photo-upload-target="photoIcon"></i>
+              <!-- Bouton pour choisir un fichier -->
+              <button type="button"
+                      class="photo-button"
+                      data-action="click->photo-upload#selectPhoto"
+                      data-photo-upload-target="photoButton">
+                <span class="photo-text">Take a photo</span>
+              </button>
+              <!-- Conteneur pour l'aperçu de la photo -->
+              <div class="photo-preview-container d-none" data-photo-upload-target="photoPreviewContainer">
+                <img src="#" alt="Photo preview" class="photo-preview" data-photo-upload-target="photoPreview">
+                <button type="button"
+                        class="delete-photo"
+                        data-action="click->photo-upload#changePhoto">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                </button>
+              </div>
+
+              <%= f.file_field :photo, class: "d-none",
+                    data: { action: "change->photo-upload#previewPhoto",
+                            photo_upload_target: "photoInput" },
+                            id: "photo-input" %>
+            </div>
+          <% end %>
+
+          <% placeholder_title = @category == 'food' ? 'E.g. cake, salad, beans can' : 'E.g. chair, table, sofa' %>
+          <% placeholder_description = @category == 'food' ? 'E.g. tomatoes from the garden' : 'E.g. wooden chair in good condition' %>
+
+          <%= f.input :title, label: 'Title', input_html: { maxlength: 50, placeholder: placeholder_title } %>
+          <%= f.input :description, label: 'Description', input_html: { maxlength: 150, placeholder: placeholder_description } %>
+
+          <%= f.input :category_id, collection: @categories, label_method: :name, value_method: :id, include_blank: '--Select--' %>
 
           <!-- Input depending on the category -->
           <% if @category == 'food' %>
-            <%= f.input :food_condition, label: 'Condition', collection: ['Not opened', 'Opened', 'Cooked'] %>
+            <%= f.input :food_condition, label: 'Condition', collection: ['Not opened', 'Opened', 'Cooked'], include_blank: '--Select--' %>
 
             <div class="row">
               <div class="col-6">
-                <%= f.input :quantity_value, label: 'Quantity'%>
+                <%= f.input :quantity_value, label: 'Quantity', placeholder: 'E.g. 1, 2, 100' %>
               </div>
               <div class="col-6">
-                <%= f.input :quantity_unit, label: 'Unit of measurement', collection: ['Unit', 'Gram', 'Kg', 'mL', 'L'] %>
+                <%= f.input :quantity_unit, label: 'Unit of measurement', collection: ['Unit', 'Gram', 'Kg', 'mL', 'L'], include_blank: '--Select--' %>
               </div>
             </div>
-
           <% elsif @category == 'home' %>
-            <%= f.input :home_condition, label: 'Condition', collection: ['Like new', 'Used - good', 'Used - fair', 'For parts'] %>
-            <%= f.input :quantity_value, label: 'Quantity'%>
+            <%= f.input :home_condition, label: 'Condition', collection: ['Like new', 'Used - good', 'Used - fair', 'For parts'], include_blank: '--Select--' %>
+            <%= f.input :quantity_value, label: 'Quantity' %>
           <% end %>
 
           <div class="row">
+            <p class="m-0">Availability Slot</p>
             <div class="col-6">
-              <%= f.input :available_start_date, as: :string, label: 'Start Date', input_html: { data: { flatpickr_target: "startDateInput" } } %>
+              <%= f.input :available_start_date, as: :string, label: 'From', input_html: { data: { flatpickr_target: "startDateInput" } } %>
             </div>
             <div class="col-6">
-              <%= f.input :available_end_date, as: :string, label: 'End Date', readonly: true,  input_html: { data: { flatpickr_target: "endDateInput", action: "click->flatpickr#openStartPicker" } } %>
+              <%= f.input :available_end_date, as: :string, label: 'Until', readonly: true, input_html: { data: { flatpickr_target: "endDateInput", action: "click->flatpickr#openStartPicker" } } %>
             </div>
           </div>
 
           <% if @category == 'food' %>
-            <%= f.input :best_before_date, as: :string, label: 'Use-by Date', input_html: { data: { flatpickr_target: "useByDateInput" } } %>
+            <%= f.input :best_before_date, as: :string, label: 'Save by', hint: "The date you are expected the food to turn bad. If the food isn't opened, use the expiry date.", input_html: { data: { flatpickr_target: "useByDateInput" } } %>
           <% end %>
 
           <%= f.input :item_address, label: 'Address' %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit 'Send', class: 'btn btn-success mb-5' %>
+          <%= f.submit 'Creating listing', class: 'btn-blue w-100' %>
         <% end %>
       </div>
     </div>

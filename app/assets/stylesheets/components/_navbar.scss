@@ -30,12 +30,16 @@
   .fa-solid {
     text-align: center;
   }
-  
+
   .icon-size {
     font-size: 32px;
   }
 }
 
+.hide-button {
+  background-color: transparent;
+  border: 0;
+}
 
 .new-item {
   font-size: 80px;
@@ -61,4 +65,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.navbar-space {
+  padding-bottom: 85px;
 }
