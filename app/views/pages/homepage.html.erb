@@ -1,0 +1,17 @@
+<div class="container navbar-space my-3" data-controller="filter">
+  <!-- Boutons de sélection -->
+  <div class="d-flex align-items-start justify-content-evenly mb-4">
+    <button class="btn-lightblue selected" data-action="click->filter#showDonationItems">
+      <h2><%= @category.name %> Available</h2>
+    </button>
+    <button class="btn-lightblue" data-action="click->filter#showRequestItems">
+      <h2>Requested <%= @category.name %></h2>
+    </button>
+  </div>
+
+  <!-- Section des dons -->
+  <%= render "shared/item_section", section: "Donation", items: @donations %>
+
+  <!-- Section des demandes -->
+  <%= render "shared/item_section", section: "Request", items: @requests %>
+</div>

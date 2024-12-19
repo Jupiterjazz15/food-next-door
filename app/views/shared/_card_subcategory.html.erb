@@ -1,5 +1,5 @@
 <% subcategories.each do |subcategory| %>
-  <%= link_to homepage_food_path(category: subcategory.name), class: "card-category-link" do %>
+  <%= link_to homepage_path(category: @category.name, subcategory: subcategory.name), class: "card-category-link" do %>
     <div class="card-category">
       <%= cl_image_tag subcategory.photo.key, class: "card-category-img"%>
       <div class="card-category-infos">

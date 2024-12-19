@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   # Items routes
   resources :items, only: %i[index show new create]
 
-  # Homepage routes
-  get "/homepage_food", to: "pages#homepage_food", as: :homepage_food
-  get "/homepage_home", to: "pages#homepage_home", as: :homepage_home
+  # Homepage route
+  get "/homepage/:category", to: "pages#homepage", as: :homepage
 
   # Dashboard route
   get "/dashboard", to: "pages#dashboard"
