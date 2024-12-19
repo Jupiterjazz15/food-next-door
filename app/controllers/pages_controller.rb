@@ -5,54 +5,64 @@ class PagesController < ApplicationController
   end
 
   def homepage_food
-    food_category = Category.find_by(name: 'Food')
-    return if food_category.nil?
-
-    @food_subcategories = Category.subcategories_with_parent_named('Food')
-
-    # Récupérer tous les items de type "donation" de la catégorie Food
-    @food_items_donations = Item.joins(:category)
-                                .where(categories: { parent_id: food_category.id }, item_type: 'donation')
-                                .order(created_at: :desc)
-
-    # Récupérer tous les items de type "request" de la catégorie Food
-    @food_items_requests = Item.joins(:category)
-                               .where(categories: { parent_id: food_category.id }, item_type: 'request')
-                               .order(created_at: :desc)
-
-    # Appliquer le filtre par catégorie si présent (quand on clique sur une carte catégorie)
-    if params[:category].present?
-      @food_items_donations = @food_items_donations.joins(:category)
-                                                  .where(categories: { name: params[:category] })
-
-      @food_items_requests = @food_items_requests.joins(:category)
-                                                .where(categories: { name: params[:category] })
-    end
-
-
-    # Gestion de la recherche si query est présent
-    if params[:query].present?
-      cleaned_query = params[:query].strip
-      sql_subquery = <<~SQL
-        items.title ILIKE :query
-        OR categories.name ILIKE :query
-      SQL
-      @food_items_donations = @food_items_donations.where(sql_subquery, query: "%#{cleaned_query}%")
-      @food_items_requests = @food_items_requests.where(sql_subquery, query: "%#{cleaned_query}%")
-      end
+    load_items_for_category('Food')
   end
 
   def homepage_home
-    @home_subcategories = Category.subcategories_with_parent_named('Home')
-    @home_items_donations = Item.joins(:category)
-                                .where(categories: { parent_id: Category.find_by(name: 'Home').id }, item_type: 'donation')
-                                .order(created_at: :desc)
-
-    @home_items_requests = Item.joins(:category)
-                               .where(categories: { parent_id: Category.find_by(name: 'Home').id }, item_type: 'request')
-                               .order(created_at: :desc)
+    load_items_for_category('Home')
   end
 
   def dashboard
+  end
+
+  private
+
+  # Méthode pour charger les données d'une catégorie
+  def load_items_for_category(category_name)
+    # Récupérer la catégorie principale (Food ou Home)
+    category = Category.find_by(name: category_name)
+    return if category.nil?
+
+    # Récupérer les sous-catégories de la catégorie principale
+    instance_variable_set("@#{category_name.downcase}_subcategories", Category.subcategories_with_parent_named(category_name))
+
+    # Récupérer les items de type donation et request
+    @donations = fetch_items(category, 'donation')
+    @requests = fetch_items(category, 'request')
+
+    # Appliquer les filtres et la recherche
+    apply_filters
+    apply_search if params[:query].present?
+
+    # Assigner les variables d'instance pour les items
+    instance_variable_set("@#{category_name.downcase}_items_donations", @donations)
+    instance_variable_set("@#{category_name.downcase}_items_requests", @requests)
+  end
+
+  # Récupérer les items selon le type (donation ou request)
+  def fetch_items(category, item_type)
+    Item.joins(:category)
+        .where(categories: { parent_id: category.id }, item_type: item_type)
+        .order(created_at: :desc)
+  end
+
+  # Appliquer les filtres par catégorie si un filtre est passé en paramètre
+  def apply_filters
+    return unless params[:category].present?
+
+    category_filter = params[:category]
+    @donations = @donations.joins(:category).where(categories: { name: category_filter })
+    @requests = @requests.joins(:category).where(categories: { name: category_filter })
+  end
+
+  # Appliquer la recherche sur les items si un query est passé en paramètre
+  def apply_search
+    cleaned_query = params[:query].strip
+    sql_subquery = <<~SQL
+      items.title ILIKE :query
+      OR categories.name ILIKE :query
+    SQL
+    @donations = @donations.where(sql_subquery, query: "%#{cleaned_query}%")
+    @requests = @requests.where(sql_subquery, query: "%#{cleaned_query}%")
   end
 end

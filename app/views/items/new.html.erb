@@ -7,8 +7,8 @@
           <!-- Champ masqué pour inclure le type -->
           <%= f.hidden_field :item_type, value: @type %>
 
+          <!-- Section photo avec aperçu -->
           <% if @type == 'donation' %>
-            <!-- Section photo avec aperçu -->
             <div class="text-center mb-4 photo-infos">
               <i class="fa-solid fa-camera photo-icon mb-2"
                   data-action="click->photo-upload#selectPhoto"
@@ -37,15 +37,17 @@
             </div>
           <% end %>
 
+          <!-- Champs pour le titre et la description -->
           <% placeholder_title = @category == 'food' ? 'E.g. cake, salad, beans can' : 'E.g. chair, table, sofa' %>
           <% placeholder_description = @category == 'food' ? 'E.g. tomatoes from the garden' : 'E.g. wooden chair in good condition' %>
 
           <%= f.input :title, label: 'Title', input_html: { maxlength: 50, placeholder: placeholder_title } %>
           <%= f.input :description, label: 'Description', input_html: { maxlength: 150, placeholder: placeholder_description } %>
 
+          <!-- Champ pour la catégorie -->
           <%= f.input :category_id, collection: @categories, label_method: :name, value_method: :id, include_blank: '--Select--' %>
 
-          <!-- Input depending on the category -->
+          <!-- Autres champs qui dépendent de la catégorie -->
           <% if @category == 'food' %>
             <%= f.input :food_condition, label: 'Condition', collection: ['Not opened', 'Opened', 'Cooked'], include_blank: '--Select--' %>
 

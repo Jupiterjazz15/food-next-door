@@ -1,3 +1,4 @@
+// Navbar en bas de page
 .navbar-bottom {
   font-size: 34px;
   position: fixed;
@@ -36,24 +37,27 @@
   }
 }
 
+// Enlever le style du bouton pour le rendre invisible
 .hide-button {
   background-color: transparent;
   border: 0;
 }
 
+// Icone "+" pour ajouter un nouvel item
 .new-item {
   font-size: 80px;
   position: absolute;
   bottom: 0%;
   right: 40%;
+
+  .fa-circle-plus {
+    color: $orange-fnd;
+    position: relative;
+    z-index: 2;
+  }
 }
 
-.fa-circle-plus {
-  color: $orange-fnd;
-  position: relative;
-  z-index: 2;
-}
-
+// Cercle blanc en dessous de l'icone "+" pour que la croix soit visible (sinon prend la couleur de fond)
 .new-item::before {
   content: "";
   position: absolute;
@@ -67,6 +71,7 @@
   transform: translate(-50%, -50%);
 }
 
+// Ajout d'un espace en bas de la navbar pour que le contenu de l'écran ne soit pas caché
 .navbar-space {
   padding-bottom: 85px;
 }

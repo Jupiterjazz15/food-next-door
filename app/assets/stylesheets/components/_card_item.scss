@@ -1,9 +1,11 @@
-.item-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.2rem;
-}
+// Style de l'ancien container des cartes d'items sous forme de grille (à garder pour le moment)
+// .item-cards-grid {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: 1.2rem;
+// }
 
+// Container des cartes d'items
 .item-cards-container {
   display: flex;
   flex-wrap: nowrap;
@@ -13,6 +15,7 @@
   padding-bottom: 1.2rem;
 }
 
+// Cartes de don d'un item
 .card-item {
   flex: 1 1 calc(25% - 1.2rem);
   max-width: calc(25% - 1.2rem);
@@ -54,6 +57,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
 }
 
+// Avatar + nom de l'utilisateur
 .card-item-user {
   display: flex;
   align-items: center;
@@ -62,12 +66,14 @@
   bottom: 41%;
 }
 
+// Nom de l'utilisateur
 #card-item-user-name {
   margin-bottom: 0;
   color: white;
   font-size: 0.8em;
 }
 
+// Catégorie de l'item
 .card-item-category {
   position: absolute;
   right: 6%;
@@ -83,12 +89,14 @@
   font-weight: bold;
 }
 
+// Date "save by" de l'item
 .card-item-date p {
   color: $orange-fnd;
   font-size: 0.7em;
   font-weight: bold;
 }
 
+// Enlève le style par défaut du lien qui entoure la carte d'item
 .card-item-link {
   text-decoration: none;
   color: inherit;

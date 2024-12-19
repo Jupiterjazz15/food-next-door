@@ -1,8 +1,4 @@
-.modal.show .modal-dialog {
-  transform: translateX(-50%) !important;
-  margin: 0 !important;
-}
-
+// Modales qui s'affichent lorsque l'utilisateur clique sur le bouton "+" de la navbar
 .modal-bottom {
   position: fixed;
   bottom: 10px;
@@ -13,6 +9,7 @@
   border-radius: 10px;
   z-index: 1050;
 
+  // Conteneur de la modale
   .modal-dialog {
     display: flex;
     justify-content: center;
@@ -21,6 +18,7 @@
     z-index: 1051
   }
 
+  // Contenu de la modale
   .modal-content {
     border-radius: 10px;
     width: 100%;
@@ -34,6 +32,7 @@
     margin-bottom: 0;
   }
 
+  // Style global des boutons
   .btn {
     width: 100%;
     padding: 0.75rem;
@@ -41,11 +40,13 @@
     border-radius: 30px;
   }
 
+  // Boutons d'actions (food/home & share/request an item)
   .btn-primary {
     background-color: $blue-fnd;
     color: white;
   }
 
+  // Bouton d'annulation
   .btn-outline-primary {
     background-color: white;
     color: $blue-fnd;

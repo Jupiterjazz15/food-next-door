@@ -1,3 +1,4 @@
+// Bouton utilisé sur la homepage pour afficher la partie "don" ou la partie "demande"
 .btn-lightblue {
   background-color: white;
   padding: 12px 24px;
@@ -13,6 +14,7 @@
   }
 }
 
+// Style du bouton bleu clair lorsqu'il est sélectionné
 .btn-lightblue.selected {
   opacity: 1;
   text-decoration: none;
@@ -23,6 +25,7 @@
   }
 }
 
+// Bouton utilisé pour les actions primaires
 .btn-blue {
   background-color: $blue-fnd;
   padding: 12px 24px;
@@ -40,6 +43,7 @@
   }
 }
 
+// Boutons utilisé pour les actions secondaires
 .btn-white-border-blue {
   background-color: white;
   padding: 12px 24px;
