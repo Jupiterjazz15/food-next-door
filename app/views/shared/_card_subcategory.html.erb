@@ -1,8 +1,10 @@
 <% subcategories.each do |subcategory| %>
-  <div class="card-category">
-    <%= cl_image_tag subcategory.photo.key, class: "card-category-img"%>
-    <div class="card-category-infos">
-      <h2> <%= subcategory.name %> </h2>
+  <%= link_to homepage_food_path(category: subcategory.name), class: "card-category-link" do %>
+    <div class="card-category">
+      <%= cl_image_tag subcategory.photo.key, class: "card-category-img"%>
+      <div class="card-category-infos">
+        <h2><%= subcategory.name %></h2>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

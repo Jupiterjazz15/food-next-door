@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
     @item = Item.new
     @category = params[:category]
     @type = params[:type]
+    @item.item_type = @type
+
     if @category.present?
       parent_category = Category.find_by(name: @category.capitalize)
       if parent_category
@@ -31,14 +33,15 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to item_path(@item), notice: 'Item was successfully created.'
     else
-      render :new
+      Rails.logger.debug "Item errors: #{@item.errors.full_messages}"
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :quantity_unit, :quantity_value, :available_start_date, :available_end_date, :best_before_date, :item_address, :food_condition, :home_condition, :category_id, :photo)
+    params.require(:item).permit(:title, :description, :quantity_unit, :quantity_value, :available_start_date, :available_end_date, :best_before_date, :item_address, :food_condition, :home_condition, :category_id, :photo, :item_type)
   end
 
   def set_item

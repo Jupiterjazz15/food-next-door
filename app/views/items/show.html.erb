@@ -1,6 +1,11 @@
 <div class="container my-3">
   <h2><%= @item.title %></h2>
   <p><%= @item.description %></p>
-  <%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fill %>
-  <p><%= link_to "Back to list", items_path %></p>
+  <%= @item.photo.attached? ? cl_image_tag(@item.photo.key, height: 300, width: 400, crop: :fill) : image_tag('logo_scarlet.png', height: 300, width: 400) %>
+
+  <% if @item.category.parent_category.name == "Food" %>
+    <p><%= link_to "Back to list", homepage_food_path %></p>
+  <% elsif @item.category.parent_category.name == "Home" %>
+    <p><%= link_to "Back to list", homepage_home_path %></p>
+  <% end %>
 </div>

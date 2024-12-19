@@ -1,11 +1,20 @@
+// Container des cartes de catégories
 .category-cards-container {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   gap: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 
+// Enlève le style par défaut du lien qui entoure la carte catégorie
+.card-category-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Carte de catégorie
 .card-category {
   flex: 0 0 auto;
   overflow: hidden;

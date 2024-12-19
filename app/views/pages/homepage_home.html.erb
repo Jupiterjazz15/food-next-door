@@ -1,4 +1,4 @@
-<div class="container cards-section mt-3" data-controller="filter">
+<div class="container navbar-space mt-3" data-controller="filter">
 
   <div class="d-flex align-items-start justify-content-evenly mb-4">
     <button class="btn-lightblue selected" data-action="click->filter#showDonationItems"><h2>Objects Available</h2></button>
@@ -6,24 +6,48 @@
   </div>
 
   <div class="mb-5" data-filter-target="itemDonation">
-    <!-- Category Cards -->
+    <!-- Barre de recherche -->
+    <div class="mt-2 mb-4">
+      <%= render "shared/search_bar", path: homepage_home_path %>
+    </div>
+    <!-- Cartes des catégories -->
     <div class="category-cards-container mb-2">
       <%= render "shared/card_subcategory", subcategories: @home_subcategories %>
     </div>
     <p class="my-3"><strong>Objects from people living nearby</strong></p>
-    <!-- Item Cards -->
+    <!-- Cartes de chaque don -->
     <div class="item-cards-container mb-2">
-      <%= render "shared/card_item", items: @home_items %>
+      <%= render "shared/card_item", items: @home_items_donations %>
     </div>
     <p class="my-3"><strong>All objects from the community</strong></p>
-    <!-- Item Cards -->
+    <!-- Cartes de chaque don -->
     <div class="item-cards-container mb-2">
-      <%= render "shared/card_item", items: @home_items %>
+      <%= render "shared/card_item", items: @home_items_donations %>
     </div>
   </div>
 
   <div class="mb-5" data-filter-target="itemRequest">
 
+    <!-- Barre de recherche -->
+    <div class="mt-2 mb-4">
+      <%= render "shared/search_bar", path: homepage_home_path %>
+    </div>
+    <!-- Cartes des catégories -->
+    <div class="category-cards-container mb-2">
+      <%= render "shared/card_subcategory", subcategories: @home_subcategories %>
+    </div>
+    <p class="my-3"><strong>Objects from people living nearby</strong></p>
+    <!-- Cartes de chaque demande de don -->
+    <div class="item-cards-container mb-2">
+      <%= render "shared/card_item", items: @home_items_requests %>
+    </div>
+    <p class="my-3"><strong>All objects from the community</strong></p>
+    <!-- Cartes de chaque demande de don -->
+    <div class="item-cards-container mb-2">
+      <%= render "shared/card_item", items: @home_items_requests %>
+    </div>
+
+    <!-- Boutons d'actions pour faire un don ou faire une demande -->
     <div class="d-flex flex-column align-items-center">
       <button class="btn-blue mb-2"><h2>Share an object</h2></button>
       <button class="btn-white-border-blue mb-2"><h2>Request an object</h2></button>
