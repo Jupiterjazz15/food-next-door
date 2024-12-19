@@ -1,0 +1,32 @@
+<div class="mb-5" data-filter-target="item<%= section.capitalize %>">
+  <!-- Barre de recherche -->
+  <div class="mt-2 mb-4">
+    <%= render "shared/search_bar", path: homepage_path(category: @category.name), target_name: "#{section.downcase}SearchField" %>
+  </div>
+
+  <!-- Cartes des catégories -->
+  <div class="category-cards-container mb-2">
+    <%= render "shared/card_subcategory", subcategories: @subcategories %>
+  </div>
+
+  <p class="my-3"><strong><%= @category.name %> from people living nearby</strong></p>
+
+  <!-- Cartes des items -->
+  <div class="item-cards-container mb-2">
+    <%= render "shared/card_item", items: items %>
+  </div>
+
+  <p class="my-3"><strong>All <%= @category.name.downcase %> from the community</strong></p>
+
+  <div class="item-cards-container mb-2">
+    <%= render "shared/card_item", items: items %>
+  </div>
+
+  <!-- Boutons d'actions -->
+  <% if section == "Request" %>
+    <div class="d-flex flex-column align-items-center">
+      <button class="btn-blue mb-2"><h2><%= @category.name == 'Food' ? 'Share your extra food' : 'Share an object'%></h2></button>
+      <button class="btn-white-border-blue mb-2"><h2><%= @category.name == 'Food' ? 'Request a food item' : 'Request an object'%></h2></button>
+    </div>
+  <% end %>
+</div>
