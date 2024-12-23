@@ -2,7 +2,7 @@
   <!-- Boutons de sélection -->
   <div class="d-flex align-items-start justify-content-evenly mb-4">
     <button class="btn-lightblue selected" data-action="click->filter#showDonationItems">
-      <h2><%= @category.name %> Available</h2>
+      <h2><%= @category.name.capitalize %> available</h2>
     </button>
     <button class="btn-lightblue" data-action="click->filter#showRequestItems">
       <h2>Requested <%= @category.name %></h2>

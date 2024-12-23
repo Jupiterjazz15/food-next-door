@@ -5,13 +5,14 @@ class PagesController < ApplicationController
   end
 
   def homepage
-    category_name = params[:category].capitalize
+    category_name = params[:category]
     if category_name.blank? || Category.find_by(name: category_name).nil?
       redirect_to root_path, alert: "Sorry, we couldn't find the page you were looking for."
       return
     end
 
     load_items_for_category(category_name)
+
   end
 
   def dashboard

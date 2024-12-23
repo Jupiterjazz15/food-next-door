@@ -1,21 +1,21 @@
 // Container des cartes de catégories
-.category-cards-container {
+.subcategory-cards-container {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   gap: 1.2rem;
-  padding-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
 }
 
 // Enlève le style par défaut du lien qui entoure la carte catégorie
-.card-category-link {
+.card-subcategory-link {
   text-decoration: none;
   color: inherit;
 }
 
 // Carte de catégorie
-.card-category {
+.card-subcategory {
   flex: 0 0 auto;
   overflow: hidden;
   background: white;
@@ -23,7 +23,7 @@
   border-radius: 30px 30px 5px 5px;
   position: relative;
 
-  & .card-category-img {
+  & .card-subcategory-img {
     height: 90px;
     width: 140px;
     object-fit: cover;
@@ -37,7 +37,7 @@
     margin: 0;
   }
 
-  & .card-category-infos {
+  & .card-subcategory-infos {
     padding: 0.5em;
   }
 }

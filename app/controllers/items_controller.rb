@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @item.item_type = @type
 
     if @category.present?
-      parent_category = Category.find_by(name: @category.capitalize)
+      parent_category = Category.find_by(name: @category)
       if parent_category
         @categories = Category.where(parent_id: parent_category.id)
       else

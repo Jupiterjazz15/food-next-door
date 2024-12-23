@@ -1,8 +1,9 @@
+<!-- Carte d'une sous-catégorie -->
 <% subcategories.each do |subcategory| %>
-  <%= link_to homepage_path(category: @category.name, subcategory: subcategory.name), class: "card-category-link" do %>
-    <div class="card-category">
-      <%= cl_image_tag subcategory.photo.key, class: "card-category-img"%>
-      <div class="card-category-infos">
+  <%= link_to homepage_path(category: @category.name, subcategory: subcategory.name), class: "card-subcategory-link" do %>
+    <div class="card-subcategory">
+      <%= cl_image_tag subcategory.photo.key, class: "card-subcategory-img"%>
+      <div class="card-subcategory-infos">
         <h2><%= subcategory.name %></h2>
       </div>
     </div>

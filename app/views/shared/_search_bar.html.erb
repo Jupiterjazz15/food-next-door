@@ -1,9 +1,13 @@
-<%= form_with url: path, method: :get, class: "d-flex" do %>
+<!-- Barre de recherche dans la page d'accueil -->
+<%= form_with url: path, method: :get, html: { class: 'd-flex', data: { refresh_list_target: 'form' } } do %>
   <%= text_field_tag :query,
             params[:query],
             class: "form-control form-control-sm",
             id: "input_field",
-            data: { filter_target: target_name }, 
+            data: {
+              refresh_list_target: target_name,
+              action: action_name
+                  },
             placeholder: "What are you looking for?" %>
   <button type="submit" class="btn form-control-sm", id="btn_search">
     <i class="fa-solid fa-magnifying-glass"></i>

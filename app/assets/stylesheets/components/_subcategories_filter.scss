@@ -1,0 +1,15 @@
+.active-filter-container {
+  margin-top: 1rem;
+  padding-bottom: 1.2rem;
+}
+
+.active-filter strong {
+  color: $orange-fnd;
+}
+
+.remove-filter-btn {
+  color: $lightblue-fnd;
+  text-decoration: underline;
+  padding-left: 1rem;
+  cursor: pointer;
+}

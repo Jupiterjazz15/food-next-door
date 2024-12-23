@@ -1,25 +1,30 @@
+<!-- Navbar -->
 <div class="navbar-bottom sticky-bottom">
 
-  <%= link_to homepage_path(category: "Food") do %>
+  <!-- Page d'accueil avec la food -->
+  <%= link_to homepage_path(category: "food") do %>
     <div class="tab-current text-center">
       <i class="fa-solid fa-utensils icon-size" style="color: #ffffff;"></i>
       <p class="mt-0 fs-6 lh-1">Food</p>
     </div>
   <% end %>
 
-  <%= link_to homepage_path(category: "Home") do %>
+  <!-- Page d'accueil avec les objets -->
+  <%= link_to homepage_path(category: "home") do %>
   <div class="tab-current text-center">
     <i class="fa-solid fa-couch icon-size" style="color: #ffffff;"></i>
     <p class="mt-0 fs-6 lh-1">Objects</p>
   </div>
   <% end %>
 
+  <!-- Bouton pour créer un don ou une demande -->
   <button type="button" class="hide-button" data-action="click->modal#showCategoryModal">
     <div class="tab-current new-item">
       <i class="fa-solid fa-circle-plus"></i>
     </div>
   </button>
 
+  <!-- Espace avec son voisinage (Note : route à revoir) -->
   <%= link_to dashboard_path do %>
     <div class="tab-current text-center">
       <i class="fa-solid fa-house icon-size" style="color: #ffffff;"></i>
@@ -27,6 +32,7 @@
     </div>
   <% end %>
 
+  <!-- Espace avec le dashboard de gestion des dons/demandes et le profil (Note : route à revoir) -->
   <%= link_to dashboard_path do %>
     <div class="tab-current text-center">
       <i class="fa-solid fa-user icon-size" style="color: #ffffff;"></i>

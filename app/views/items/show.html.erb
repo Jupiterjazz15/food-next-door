@@ -4,8 +4,8 @@
   <%= @item.photo.attached? ? cl_image_tag(@item.photo.key, height: 300, width: 400, crop: :fill) : image_tag('logo_scarlet.png', height: 300, width: 400) %>
 
   <% if @item.category.parent_category.name == "Food" %>
-    <p><%= link_to "Back to list", homepage_food_path %></p>
+    <p><%= link_to "Back to list", homepage_path(category: "Food") %></p>
   <% elsif @item.category.parent_category.name == "Home" %>
-    <p><%= link_to "Back to list", homepage_home_path %></p>
+    <p><%= link_to "Back to list", hhomepage_path(category: "Home") %></p>
   <% end %>
 </div>
